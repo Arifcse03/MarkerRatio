@@ -1078,6 +1078,11 @@
                       <f:validator binding="#{row.bindings.StnNo.validator}"/>
                     </af:inputComboboxListOfValues>
                   </af:column>
+                  <af:column headerText="BPO"
+                             id="c57" align="center" sortable="true"
+                             filterable="true" sortProperty="NewBpo">
+                    <af:outputText value="#{row.NewBpo}" id="ot24"/>
+                  </af:column>
                   <af:column headerText="#{bindings.MnjMfgRatioplanStnsAllView1.hints.BpoId.label}"
                              id="c45" sortProperty="BpoId" sortable="false"
                              visible="false">
@@ -1096,7 +1101,7 @@
                   <af:column headerText="BPO"
                              id="c90" width="120" align="center"
                              sortable="true" filterable="true"
-                             sortProperty="BpoNo">
+                             sortProperty="BpoNo" visible="false">
                     <af:inputText value="#{row.bindings.BpoNo.inputValue}"
                                   label="#{bindings.MnjMfgRatioplanStnsAllView1.hints.BpoNo.label}"
                                   required="#{bindings.MnjMfgRatioplanStnsAllView1.hints.BpoNo.mandatory}"
@@ -1144,9 +1149,17 @@
                       <f:validator binding="#{row.bindings.ItemDescription.validator}"/>
                     </af:inputText>
                   </af:column>
+                  <af:column headerText="QTY"
+                             id="c58" align="center" sortable="true"
+                             filterable="true" sortProperty="NewQuantity">
+                    <af:outputText value="#{row.NewQuantity}" id="ot25">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MnjMfgRatioplanStnsAllView1.hints.NewQuantity.format}"/>
+                    </af:outputText>
+                  </af:column>
                   <af:column sortProperty="StnQty" sortable="true"
                              headerText="BPO QTY" id="c93" align="center"
-                             visible="true">
+                             visible="false">
                     <af:inputText value="#{row.bindings.StnQty.inputValue}"
                                   label="#{bindings.MnjMfgRatioplanStnsAllView1.hints.StnQty.label}"
                                   required="#{bindings.MnjMfgRatioplanStnsAllView1.hints.StnQty.mandatory}"

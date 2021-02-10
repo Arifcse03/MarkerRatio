@@ -84,10 +84,13 @@ and j.wip_entity_name like '%-C'
        MnjMfgRatioplanStnsAll.LAST_UPDATED_BY,
        (SELECT user_name FROM FND_USER where USER_ID=MnjMfgRatioplanStnsAll.LAST_UPDATED_BY  ) UPDATER,
        MnjMfgRatioplanStnsAll.LAST_UPDATE_DATE,
-       MnjMfgRatioplanStnsAll.BPO_ID
+       MnjMfgRatioplanStnsAll.BPO_ID,
+       bpo.QTY New_Quantity,
+       bpo.BPO New_BPO
            
        
-  FROM MNJ_MFG_RATIOPLAN_STNS_ALL MnjMfgRatioplanStnsAll]]>
+  FROM MNJ_MFG_RATIOPLAN_STNS_ALL MnjMfgRatioplanStnsAll ,xx_om_bpo_info_t bpo
+  where bpo.bpo_id=MnjMfgRatioplanStnsAll.bpo_id]]>
   </SQLQuery>
   <EntityUsage
     Name="MnjMfgRatioplanStnsAll"
@@ -248,4 +251,33 @@ and j.wip_entity_name like '%-C'
     EntityAttrName="BpoId"
     EntityUsage="MnjMfgRatioplanStnsAll"
     AliasName="BPO_ID"/>
+  <ViewAttribute
+    Name="NewQuantity"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="NEW_QUANTITY"
+    Expression="NEW_QUANTITY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NewBpo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NEW_BPO"
+    Expression="NEW_BPO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
 </ViewObject>

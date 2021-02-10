@@ -464,6 +464,8 @@
           <Item Value="StnSequence"/>
           <Item Value="BpoId"/>
           <Item Value="InventoryItemId"/>
+          <Item Value="NewBpo"/>
+          <Item Value="NewQuantity"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

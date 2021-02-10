@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MnjMfgRatioplanStnsAllView"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="STNVO1"
+    ViewObjectName="mnj.mfg.model.lov.views.STNVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_StnNo"
+    ListVOName="STNVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="StnNo"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ItemCode"/>
+      <Item Value="ItemDescription"/>
+      <Item Value="StnQty"/>
+      <Item Value="InventoryItemId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Stn"/>
+      <Item Value="OrderedItem"/>
+      <Item Value="Description"/>
+      <Item Value="OrderedQty"/>
+      <Item Value="InventoryItemId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Stn"/>
+      
+    </AttrArray>
+    <DisplayCriteria
+      Name="STNVOCriteria"
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[/* Formatted on 04/Jun/18 4:09:13 PM (QP5 v5.256.13226.35510) */
+SELECT MnjMfgRatioplanStnsAll.DETAIL_ID,
+       MnjMfgRatioplanStnsAll.LINE_ID,
+       MnjMfgRatioplanStnsAll.BPO_NO,
+       MnjMfgRatioplanStnsAll.STN_NO,
+       MnjMfgRatioplanStnsAll.INVENTORY_ITEM_ID,
+       MnjMfgRatioplanStnsAll.ITEM_CODE,
+       MnjMfgRatioplanStnsAll.ITEM_DESCRIPTION,
+       MnjMfgRatioplanStnsAll.ORG_ID,
+       MnjMfgRatioplanStnsAll.STN_QTY,
+       MnjMfgRatioplanStnsAll.JOB_STATUS,
+       MnjMfgRatioplanStnsAll.RATIOPLAN_ID,
+       
+        (select j.wip_entity_name
+          from WIP_DISCRETE_JOBS_V j,mnj_mfg_ratioplan mmr
+         where MnjMfgRatioplanStnsAll.ratioplan_id=mmr.ratioplan_id
+         and j.attribute6=mmr.style
+         and j.attribute7=mmr.season 
+         and j.attribute8=mmr.color
+      -- and j.ATTRIBUTE_CATEGORY is null
+and j.wip_entity_name like '%-C'
+--and j.wip_entity_name like '%mmr.style%'
+          -- and j.attribute3 = MnjMfgRatioplanStnsAll.RATIOPLAN_ID
+          and rownum=1
+          and STATUS_TYPE_DISP<>'Closed'
+           ) job_name,
+      
+       MnjMfgRatioplanStnsAll.STN_SEQUENCE,
+       MnjMfgRatioplanStnsAll.CREATED_BY,
+       (SELECT user_name FROM FND_USER where USER_ID=MnjMfgRatioplanStnsAll.CREATED_BY  ) CREATOR,
+       MnjMfgRatioplanStnsAll.CREATION_DATE,
+       MnjMfgRatioplanStnsAll.LAST_UPDATED_BY,
+       (SELECT user_name FROM FND_USER where USER_ID=MnjMfgRatioplanStnsAll.LAST_UPDATED_BY  ) UPDATER,
+       MnjMfgRatioplanStnsAll.LAST_UPDATE_DATE,
+       MnjMfgRatioplanStnsAll.BPO_ID
+           
+       
+  FROM MNJ_MFG_RATIOPLAN_STNS_ALL MnjMfgRatioplanStnsAll]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="MnjMfgRatioplanStnsAll"
+    Entity="mnj.mfg.model.entities.MnjMfgRatioplanStnsAll"/>
+  <ViewAttribute
+    Name="DetailId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DetailId"
+    EntityUsage="MnjMfgRatioplanStnsAll"
+    AliasName="DETAIL_ID"/>
+  <ViewAttribute
+    Name="LineId"
+    PrecisionRule="true"
+    EntityAttrName="LineId"
+    EntityUsage="MnjMfgRatioplanStnsAll"
+    AliasName="LINE_ID"/>
+  <ViewAttribute
+    Name="BpoNo"
+    PrecisionRule="true"
+    EntityAttrName="BpoNo"
+    EntityUsage="MnjMfgRatioplanStnsAll"
+    AliasName="BPO_NO"/>
+  <ViewAttribute
+    Name="StnNo"
+    LOVName="LOV_StnNo"
+    PrecisionRule="true"
+    EntityAttrName="StnNo"
+    EntityUsage="MnjMfgRatioplanStnsAll"
+    AliasName="STN_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InventoryItemId"
+    PrecisionRule="true"
+    EntityAttrName="InventoryItemId"
+    EntityUsage="MnjMfgRatioplanStnsAll"
+    AliasName="INVENTORY_ITEM_ID"/>
+  <ViewAttribute
+    Name="ItemCode"
+    PrecisionRule="true"
+    EntityAttrName="ItemCode"
+    EntityUsage="MnjMfgRatioplanStnsAll"
+    AliasName="ITEM_CODE"/>
+  <ViewAttribute
+    Name="ItemDescription"
+    PrecisionRule="true"
+    EntityAttrName="ItemDescription"
+    EntityUsage="MnjMfgRatioplanStnsAll"
+    AliasName="ITEM_DESCRIPTION"/>
+  <ViewAttribute
+    Name="OrgId"
+    PrecisionRule="true"
+    EntityAttrName="OrgId"
+    EntityUsage="MnjMfgRatioplanStnsAll"
+    AliasName="ORG_ID"/>
+  <ViewAttribute
+    Name="StnQty"
+    PrecisionRule="true"
+    EntityAttrName="StnQty"
+    EntityUsage="MnjMfgRatioplanStnsAll"
+    AliasName="STN_QTY"/>
+  <ViewAttribute
+    Name="JobStatus"
+    PrecisionRule="true"
+    EntityAttrName="JobStatus"
+    EntityUsage="MnjMfgRatioplanStnsAll"
+    AliasName="JOB_STATUS"/>
+  <ViewAttribute
+    Name="RatioplanId"
+    PrecisionRule="true"
+    EntityAttrName="RatioplanId"
+    EntityUsage="MnjMfgRatioplanStnsAll"
+    AliasName="RATIOPLAN_ID"/>
+  <ViewAttribute
+    Name="JobName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="JOB_NAME"
+    Expression="JOB_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StnSequence"
+    PrecisionRule="true"
+    AliasName="STN_SEQUENCE"
+    EntityAttrName="StnSequence"
+    EntityUsage="MnjMfgRatioplanStnsAll"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="MnjMfgRatioplanStnsAll"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="Creator"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CREATOR"
+    Expression="CREATOR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="MnjMfgRatioplanStnsAll"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="MnjMfgRatioplanStnsAll"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="Updater"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="UPDATER"
+    Expression="UPDATER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="MnjMfgRatioplanStnsAll"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="BpoId"
+    PrecisionRule="true"
+    EntityAttrName="BpoId"
+    EntityUsage="MnjMfgRatioplanStnsAll"
+    AliasName="BPO_ID"/>
+</ViewObject>

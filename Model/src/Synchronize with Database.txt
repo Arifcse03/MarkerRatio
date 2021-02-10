@@ -1,0 +1,8 @@
+The following Synchronization Actions were performed successfully:
+
+Entity :MnjMfgRatioplanStnsAll
+  Create Attribute for column: RATIOPLAN_ID
+  Key :MnjMfgRatioplanStnsAllFk
+    Remove key attribute LineId
+    Add attribute to key for column RATIOPLAN_ID
+    Change Referenced Key Name to:MNJ_MFG_RPID_PK

@@ -1,0 +1,1244 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MnjMfgRatioplanView"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="p_ratioPlan"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="p_ratioDate"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Date"/>
+  <Variable
+    Name="p_orgId"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.context.sessionScope.orgId]]></TransientExpression>
+  </Variable>
+  <ViewAccessor
+    Name="SaleOrderVO1"
+    ViewObjectName="mnj.mfg.model.lov.views.SaleOrderVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ItemVO1"
+    ViewObjectName="mnj.mfg.model.lov.views.ItemVO">
+    <ViewCriteriaUsage
+      Name="ItemVOCriteria"
+      FullName="mnj.mfg.model.lov.views.ItemVO.ItemVOCriteria"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="STNVO1"
+    ViewObjectName="mnj.mfg.model.lov.views.STNVO">
+    <ViewCriteriaUsage
+      Name="STNVOCriteria"
+      FullName="mnj.mfg.model.lov.views.STNVO.STNVOCriteria"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="Buyer1"
+    ViewObjectName="mnj.mfg.model.lov.Buyer"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="StyleVO1"
+    ViewObjectName="mnj.mfg.model.lov.StyleVO">
+    <ParameterMap>
+      <PIMap Variable="p_buyerId">
+        <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="ColorVo1"
+    ViewObjectName="mnj.mfg.model.lov.ColorVo"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BPOVO1"
+    ViewObjectName="mnj.mfg.model.lov.BPOVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="StitchUnitsVO1"
+    ViewObjectName="mnj.mfg.model.lov.StitchUnitsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="operatingUnitsVO1"
+    ViewObjectName="mnj.mfg.model.lov.views.operatingUnitsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="YesNoVo1"
+    ViewObjectName="mnj.mfg.model.lov.views.YesNoVo"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="NewColorLOV1"
+    ViewObjectName="mnj.mfg.model.lov.NewColorLOV">
+    <ParameterMap>
+      <PIMap Variable="P_BUYER_ID">
+        <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_SEASOn">
+        <TransientExpression><![CDATA[Season]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_STYLE_NAME">
+        <TransientExpression><![CDATA[Style]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="FINISHED_GARMENTS_COLOR_LOV1"
+    ViewObjectName="mnj.mfg.model.lov.FINISHED_GARMENTS_COLOR_LOV">
+    <ParameterMap>
+      <PIMap Variable="BUYER">
+        <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="SEASON">
+        <TransientExpression><![CDATA[Season]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="STYLE">
+        <TransientExpression><![CDATA[Style]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="SystemIdLOV1"
+    ViewObjectName="mnj.mfg.model.lov.views.SystemIdLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="combinedAttribute1_1"
+    ViewObjectName="mnj.mfg.model.lov.views.combinedStyleLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="combinedStyleLOV1"
+    ViewObjectName="mnj.mfg.model.lov.views.combinedStyleLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_OrderNumber"
+    ListVOName="SaleOrderVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_OrderNumber_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OrderNumber"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DivisionId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrderNumber"/>
+      <Item Value="OrgId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrderNumber"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="SaleOrderVOCriteria"
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ItemCode"
+    ListVOName="ItemVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_ItemCode_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ItemCode"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="InventoryItemId"/>
+      <Item Value="ItemDescription"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ItemCode"/>
+      <Item Value="InventoryItemId"/>
+      <Item Value="Description"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ItemCode"/>
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ItemVOCriteria"
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Obsno"
+    ListVOName="STNVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Obsno_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Obsno"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="InventoryItemId"/>
+      <Item Value="ItemCode"/>
+      <Item Value="ItemDescription"/>
+      <Item Value="TotalQty"/>
+      <Item Value="Color"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Stn"/>
+      <Item Value="InventoryItemId"/>
+      <Item Value="OrderedItem"/>
+      <Item Value="Description"/>
+      <Item Value="OrderedQty"/>
+      
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Stn"/>
+   
+     
+      <Item Value="OrderedItem"/>
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="STNVOCriteria"
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BuyerName"
+    ListVOName="Buyer1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BuyerName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="BuyerId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BuyerShortName"/>
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BuyerShortName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Style"
+    ListVOName="StyleVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Style"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Season"/>
+      <Item Value="CurrentSeason"/>
+      <Item Value="CurrentStyle"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StyleName"/>
+      <Item Value="Season"/>
+      <Item Value="CurrentSeason"/>
+      <Item Value="CurrentStyle"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StyleName"/>
+      <Item Value="Season"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BpoNo"
+    ListVOName="BPOVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BpoNo"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BpoNo"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Unit"
+    ListVOName="StitchUnitsVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Unit"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OspUnit"
+    ListVOName="operatingUnitsVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OspUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Osp"
+    ListVOName="YesNoVo1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Osp"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Val"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Val"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_FinishedGarmentsColor"
+    ListVOName="FINISHED_GARMENTS_COLOR_LOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_FinishedGarmentsColor_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="FinishedGarmentsColor"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Color"/>
+      <Item Value="Wash"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FinishedGarmentsColor"/>
+      <Item Value="Colour"/>
+      <Item Value="WashName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FinishedGarmentsColor"/>
+      <Item Value="WashName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SystemId"
+    ListVOName="combinedAttribute1_1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_SystemId_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SystemId"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="BuyerId"/>
+      <Item Value="BuyerName"/>
+      <Item Value="Color"/>
+      <Item Value="Season"/>
+      <Item Value="Style"/>
+      <Item Value="Wash"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SystemId"/>
+      <Item Value="BuyerId"/>
+      <Item Value="Buyer"/>
+      <Item Value="Color"/>
+      <Item Value="Season"/>
+      <Item Value="Style"/>
+      <Item Value="Wash"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SystemId"/>
+      <Item Value="Buyer"/>
+      <Item Value="Season"/>
+      <Item Value="Style"/>
+      <Item Value="Color"/>
+      <Item Value="Wash"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Combineattribute"
+    ListVOName="combinedStyleLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Combineattribute_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Combineattribute"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="BuyerId"/>
+      <Item Value="BuyerName"/>
+      <Item Value="Season"/>
+      <Item Value="Style"/>
+      <Item Value="SystemId"/>
+      <Item Value="Color"/>
+      <Item Value="Wash"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CombinedAttribute"/>
+      <Item Value="BuyerId"/>
+      <Item Value="Buyer"/>
+      <Item Value="Season"/>
+      <Item Value="Style"/>
+      <Item Value="SystemId"/>
+      <Item Value="Color"/>
+      <Item Value="Wash"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CombinedAttribute"/>
+      <Item Value="SystemId"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="combinedAttribute1Criteria"
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT MnjMfgRatioplan.DIVISION_ID,
+       MnjMfgRatioplan.RATIOPLAN_ID,
+       MnjMfgRatioplan.RATIOPLAN_NUMBER,
+       MnjMfgRatioplan.RATIOPLAN_DATE,
+       MnjMfgRatioplan.SALESORDER_ID,
+       MnjMfgRatioplan.ITEM_CODE,
+       MnjMfgRatioplan.OBSNO,
+       MnjMfgRatioplan.OBSNOOLD,
+       MnjMfgRatioplan.INSEAMS,
+       MnjMfgRatioplan.EXTRA_CUT_PERCENT,
+       MnjMfgRatioplan.REMARKS,
+       MnjMfgRatioplan.LAST_UPDATE_DATE,
+       MnjMfgRatioplan.LAST_UPDATED_BY,
+       (SELECT user_name FROM FND_USER where USER_ID=MnjMfgRatioplan.LAST_UPDATED_BY  ) UPDATER,
+       MnjMfgRatioplan.CREATION_DATE,
+       MnjMfgRatioplan.CREATED_BY,
+       (SELECT user_name FROM FND_USER where USER_ID=MnjMfgRatioplan.CREATED_BY  ) CREATOR,
+       ''CombineAttribute,
+       MnjMfgRatioplan.PLANTYPE,
+       MnjMfgRatioplan.PLANSTATUS,
+       MnjMfgRatioplan.TYPEPLAN,
+       MnjMfgRatioplan.ACTUAL_EXTRA_PERCENT,
+       MnjMfgRatioplan.TOLERANCE_EXTRA_PERCENT,
+       MnjMfgRatioplan.Inventory_Item_Id,
+       MnjMfgRatioplan.ORDER_LINE_ID,
+       MnjMfgRatioplan.INSEAM_LINE_ID,
+       MnjMfgRatioplan.Total_Qty,
+       MnjMfgRatioplan.Job_Status,
+       (select msib.DESCRIPTION
+          from mtl_system_items_b msib
+         where msib.INVENTORY_ITEM_ID = MnjMfgRatioplan.INVENTORY_ITEM_ID
+           and msib.ORGANIZATION_ID = 353) item_description,
+       MnjMfgRatioplan.SYSTEM_ID,
+       MnjMfgRatioplan.Buyer_Id,
+       MnjMfgRatioplan.Bpo_No,
+       MnjMfgRatioplan.Style,
+       MnjMfgRatioplan.FINISHED_GARMENTS_COLOR,
+        MnjMfgRatioplan.WASH,
+       MnjMfgRatioplan.Color,
+       (select known_as
+          from hz_parties hp, hz_cust_accounts hca
+         where hp.party_id = hca.party_id
+           and hca.CUST_ACCOUNT_ID = MnjMfgRatioplan.Buyer_Id) BUYER_NAME,
+       MnjMfgRatioplan.Min_End_Bit,
+       MnjMfgRatioplan.Min_Bnd_Size,
+       MnjMfgRatioplan.Max_Bnd_Size,
+       MnjMfgRatioplan.Season,
+       MnjMfgRatioplan.Deviation,
+       MnjMfgRatioplan.Deviaton_Prcnt,
+       MnjMfgRatioplan.order_qty,
+       MnjMfgRatioplan.cut_qty,
+       MnjMfgRatioplan.plan_dev,
+       MnjMfgRatioplan.plan_dev_prcnt,
+       MnjMfgRatioplan.unit,
+       MnjMfgRatioplan.osp,
+       MnjMfgRatioplan.osp_unit,
+       MnjMfgRatioplan.PRINTING,
+       MnjMfgRatioplan.EMBRIODRY,
+       MnjMfgRatioplan.LAST_ACTION,
+       MnjMfgRatioplan.RATIO_PLAN_QTY,
+       MnjMfgRatioplan.COLOR_ID,
+       MnjMfgRatioplan.BOOKING_CONSUMPTION,
+       MnjMfgRatioplan.PRODUCTION_CONSUMPTION,
+(SELECT DECODE(StyleLineEO.TRACK_BASIS,'Style Name',StyleLineEO.STYLE_NAME,'Style Number',StyleLineEO.STYLE_NUMBER)
+       FROM PWC_MFG_BSS_STYLE_L StyleLineEO,
+            pwc_mfg_bss_buyer_h pwcmfgbssbuyerh,
+            PWC_MFG_BSS_SEASON_D SeasonDetailEO   
+       WHERE StyleLineEO.STYLE_IDENTIFIER = MnjMfgRatioplan.Style
+       AND   pwcmfgbssbuyerh.BUYER_ID = MnjMfgRatioplan.Buyer_Id
+       --AND   pwcmfgbssbuyerh.ORG_ID = mmoda.final_mfg_org_id
+       AND   StyleLineEO.HEADER_ID = pwcmfgbssbuyerh.HEADER_ID
+       AND   SeasonDetailEO.LINE_ID = StyleLineEO.LINE_ID 
+       AND   rownum = 1)Current_Style,
+       (SELECT SeasonDetailEO.SEASON_NAME
+       FROM PWC_MFG_BSS_STYLE_L StyleLineEO,
+            pwc_mfg_bss_buyer_h pwcmfgbssbuyerh,
+            PWC_MFG_BSS_SEASON_D SeasonDetailEO   
+       WHERE StyleLineEO.STYLE_IDENTIFIER = MnjMfgRatioplan.STYLE
+       AND   pwcmfgbssbuyerh.BUYER_ID = MnjMfgRatioplan.Buyer_Id
+       --AND   pwcmfgbssbuyerh.ORG_ID = mmoda.final_mfg_org_id
+       and   SeasonDetailEO.SEASON_NAME = MnjMfgRatioplan.Season
+       AND   StyleLineEO.HEADER_ID = pwcmfgbssbuyerh.HEADER_ID
+       AND   SeasonDetailEO.LINE_ID = StyleLineEO.LINE_ID 
+       AND   rownum = 1)Current_Season
+  FROM MNJ_MFG_RATIOPLAN MnjMfgRatioplan
+ where MnjMfgRatioplan.DIVISION_ID = :p_orgId
+ ORDER BY RATIOPLAN_ID desc]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="MnjMfgRatioplan"
+    Entity="mnj.mfg.model.entities.MnjMfgRatioplan"/>
+  <ViewAttribute
+    Name="DivisionId"
+    PrecisionRule="true"
+    EntityAttrName="DivisionId"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="DIVISION_ID"/>
+  <ViewAttribute
+    Name="RatioplanId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RatioplanId"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="RATIOPLAN_ID"/>
+  <ViewAttribute
+    Name="RatioplanNumber"
+    PrecisionRule="true"
+    EntityAttrName="RatioplanNumber"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="RATIOPLAN_NUMBER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="mnj.mfg.model.views.MnjMfgRatioplanView.RatioplanNumber_LABEL"/>
+        <DISPLAYWIDTH
+          Value="25"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RatioplanDate"
+    PrecisionRule="true"
+    EntityAttrName="RatioplanDate"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="RATIOPLAN_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="mnj.mfg.model.views.MnjMfgRatioplanView.RatioplanDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SalesorderId"
+    PrecisionRule="true"
+    EntityAttrName="SalesorderId"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="SALESORDER_ID"/>
+  <ViewAttribute
+    Name="ItemCode"
+    LOVName="LOV_ItemCode"
+    PrecisionRule="true"
+    EntityAttrName="ItemCode"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="ITEM_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Obsno"
+    LOVName="LOV_Obsno"
+    PrecisionRule="true"
+    EntityAttrName="Obsno"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="OBSNO">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <LABEL
+          ResId="mnj.mfg.model.views.MnjMfgRatioplanView.Obsno_LABEL"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Obsnoold"
+    PrecisionRule="true"
+    EntityAttrName="Obsnoold"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="OBSNOOLD"/>
+  <ViewAttribute
+    Name="Inseams"
+    PrecisionRule="true"
+    EntityAttrName="Inseams"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="INSEAMS">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <LABEL
+          ResId="mnj.mfg.model.views.MnjMfgRatioplanView.Inseams_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ExtraCutPercent"
+    PrecisionRule="true"
+    EntityAttrName="ExtraCutPercent"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="EXTRA_CUT_PERCENT"
+    DefaultValue="0"/>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="REMARKS">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="Updater"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="UPDATER"
+    Expression="UPDATER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="Creator"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CREATOR"
+    Expression="CREATOR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Combineattribute"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COMBINEATTRIBUTE"
+    Expression="COMBINEATTRIBUTE"
+    SQLType="VARCHAR"
+    LOVName="LOV_Combineattribute">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Plantype"
+    PrecisionRule="true"
+    EntityAttrName="Plantype"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="PLANTYPE"/>
+  <ViewAttribute
+    Name="Planstatus"
+    PrecisionRule="true"
+    EntityAttrName="Planstatus"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="PLANSTATUS"/>
+  <ViewAttribute
+    Name="Typeplan"
+    PrecisionRule="true"
+    EntityAttrName="Typeplan"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="TYPEPLAN"/>
+  <ViewAttribute
+    Name="ActualExtraPercent"
+    PrecisionRule="true"
+    EntityAttrName="ActualExtraPercent"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="ACTUAL_EXTRA_PERCENT"/>
+  <ViewAttribute
+    Name="ToleranceExtraPercent"
+    PrecisionRule="true"
+    EntityAttrName="ToleranceExtraPercent"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="TOLERANCE_EXTRA_PERCENT"/>
+  <ViewAttribute
+    Name="InventoryItemId"
+    PrecisionRule="true"
+    EntityAttrName="InventoryItemId"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="INVENTORY_ITEM_ID"/>
+  <ViewAttribute
+    Name="OrderLineId"
+    PrecisionRule="true"
+    EntityAttrName="OrderLineId"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="ORDER_LINE_ID"/>
+  <ViewAttribute
+    Name="InseamLineId"
+    PrecisionRule="true"
+    EntityAttrName="InseamLineId"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="INSEAM_LINE_ID"/>
+  <ViewAttribute
+    Name="TotalQty"
+    PrecisionRule="true"
+    EntityAttrName="TotalQty"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="TOTAL_QTY"/>
+  <ViewAttribute
+    Name="JobStatus"
+    PrecisionRule="true"
+    EntityAttrName="JobStatus"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="JOB_STATUS"/>
+  <ViewAttribute
+    Name="ItemDescription"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ITEM_DESCRIPTION"
+    Expression="ITEM_DESCRIPTION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SystemId"
+    PrecisionRule="true"
+    EntityAttrName="SystemId"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="SYSTEM_ID"
+    LOVName="LOV_SystemId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerId"
+    PrecisionRule="true"
+    EntityAttrName="BuyerId"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="BUYER_ID"/>
+  <ViewAttribute
+    Name="BpoNo"
+    LOVName="LOV_BpoNo"
+    PrecisionRule="true"
+    EntityAttrName="BpoNo"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="BPO_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Style"
+    LOVName="LOV_Style"
+    PrecisionRule="true"
+    EntityAttrName="Style"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="STYLE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FinishedGarmentsColor"
+    PrecisionRule="true"
+    EntityAttrName="FinishedGarmentsColor"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="FINISHED_GARMENTS_COLOR"
+    LOVName="LOV_FinishedGarmentsColor">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="25"/>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Wash"
+    PrecisionRule="true"
+    EntityAttrName="Wash"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="WASH">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Color"
+    PrecisionRule="true"
+    EntityAttrName="Color"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="COLOR">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerName"
+    LOVName="LOV_BuyerName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="500"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BUYER_NAME"
+    Expression="BUYER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MinEndBit"
+    PrecisionRule="true"
+    EntityAttrName="MinEndBit"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="MIN_END_BIT"/>
+  <ViewAttribute
+    Name="MinBndSize"
+    PrecisionRule="true"
+    EntityAttrName="MinBndSize"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="MIN_BND_SIZE"/>
+  <ViewAttribute
+    Name="MaxBndSize"
+    PrecisionRule="true"
+    EntityAttrName="MaxBndSize"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="MAX_BND_SIZE"/>
+  <ViewAttribute
+    Name="Season"
+    PrecisionRule="true"
+    EntityAttrName="Season"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="SEASON">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Deviation"
+    PrecisionRule="true"
+    EntityAttrName="Deviation"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="DEVIATION"/>
+  <ViewAttribute
+    Name="DeviatonPrcnt"
+    PrecisionRule="true"
+    EntityAttrName="DeviatonPrcnt"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="DEVIATON_PRCNT"/>
+  <ViewAttribute
+    Name="OrderQty"
+    PrecisionRule="true"
+    EntityAttrName="OrderQty"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="ORDER_QTY"/>
+  <ViewAttribute
+    Name="CutQty"
+    PrecisionRule="true"
+    EntityAttrName="CutQty"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="CUT_QTY"/>
+  <ViewAttribute
+    Name="PlanDev"
+    PrecisionRule="true"
+    EntityAttrName="PlanDev"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="PLAN_DEV"/>
+  <ViewAttribute
+    Name="PlanDevPrcnt"
+    PrecisionRule="true"
+    EntityAttrName="PlanDevPrcnt"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="PLAN_DEV_PRCNT"/>
+  <ViewAttribute
+    Name="Unit"
+    LOVName="LOV_Unit"
+    PrecisionRule="true"
+    EntityAttrName="Unit"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="UNIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Osp"
+    LOVName="LOV_Osp"
+    PrecisionRule="true"
+    EntityAttrName="Osp"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="OSP">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OspUnit"
+    LOVName="LOV_OspUnit"
+    PrecisionRule="true"
+    EntityAttrName="OspUnit"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="OSP_UNIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Printing"
+    PrecisionRule="true"
+    EntityAttrName="Printing"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="PRINTING"/>
+  <ViewAttribute
+    Name="Embriodry"
+    PrecisionRule="true"
+    EntityAttrName="Embriodry"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="EMBRIODRY"/>
+  <ViewAttribute
+    Name="LastAction"
+    PrecisionRule="true"
+    EntityAttrName="LastAction"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="LAST_ACTION"/>
+  <ViewAttribute
+    Name="RatioPlanQty"
+    PrecisionRule="true"
+    EntityAttrName="RatioPlanQty"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="RATIO_PLAN_QTY"/>
+  <ViewAttribute
+    Name="ColorId"
+    PrecisionRule="true"
+    EntityAttrName="ColorId"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="COLOR_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BookingConsumption"
+    PrecisionRule="true"
+    EntityAttrName="BookingConsumption"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="BOOKING_CONSUMPTION"/>
+  <ViewAttribute
+    Name="ProductionConsumption"
+    PrecisionRule="true"
+    EntityAttrName="ProductionConsumption"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="PRODUCTION_CONSUMPTION"/>
+  <ViewAttribute
+    Name="CurrentStyle"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CURRENT_STYLE"
+    Expression="CURRENT_STYLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentSeason"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CURRENT_SEASON"
+    Expression="CURRENT_SEASON"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RatioPlanQtyNew"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="RATIO_PLAN_QTY_NEW"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrderNumber"
+    LOVName="LOV_OrderNumber"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="NUMBER"
+    AliasName="ORDER_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ObTotalQty"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="OB_TOTAL_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="mnj.mfg.model.views.MnjMfgRatioplanView.ObTotalQty_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CreationDate1_1_1_1_1_1_1_1_1_1"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="$none$"
+    AliasName="CREATION_DATE1"
+    SQLType="DATE"/>
+  <ViewCriteria
+    Name="SearchByRatioPlanNo"
+    ViewObjectName="mnj.mfg.model.views.MnjMfgRatioplanView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="RatioplanNumber"
+        ViewAttribute="RatioplanNumber"
+        Operator="="
+        Conjunction="AND"
+        Value=":p_ratioPlan"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="RatioplanDate"
+        ViewAttribute="RatioplanDate"
+        Operator="="
+        Conjunction="AND"
+        Value=":p_ratioDate"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="MnjMfgRatioplanOblineView"
+    ViewLink="mnj.mfg.model.views.viewlinks.MnjMfgRpoblineFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="MnjMfgRatioplanPlylineView"
+    ViewLink="mnj.mfg.model.views.viewlinks.MnjMfgRpplylineFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="MnjMfgRatioplanBposAllView"
+    ViewLink="mnj.mfg.model.views.viewlinks.RatioBPOsVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="MnjMfgRatioplanStnsAllView"
+    ViewLink="mnj.mfg.model.views.viewlinks.HeaderStnVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="mnj.mfg.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

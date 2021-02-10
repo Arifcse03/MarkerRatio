@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="EditPageDef"
+                Package="mnj.mfg.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MnjMfgRatioplanView1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="MnjMfgRatioplanView1Iterator"/>
+    <iterator Binds="MnjMfgRatioplanPlylineView1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="MnjMfgRatioplanPlylineView1Iterator"/>
+    <searchRegion Binds="MnjMfgRatioplanPlylineView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MnjMfgRatioplanPlylineView1Query"/>
+    <iterator Binds="MnjMfgRatioplanSizlineView1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="MnjMfgRatioplanSizlineView1Iterator"/>
+    <searchRegion Binds="MnjMfgRatioplanSizlineView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MnjMfgRatioplanSizlineView1Query"/>
+    <iterator Binds="MnjMfgRatioplanPlycflineView1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="MnjMfgRatioplanPlycflineView1Iterator"/>
+    <searchRegion Binds="MnjMfgRatioplanPlycflineView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MnjMfgRatioplanPlycflineView1Query"/>
+    <iterator Binds="MnjMfgRatioplanOblineView1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="MnjMfgRatioplanOblineView1Iterator"/>
+    <searchRegion Binds="MnjMfgRatioplanOblineView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MnjMfgRatioplanOblineView1Query"/>
+    <iterator Binds="STNVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="STNVO1Iterator"/>
+    <searchRegion Binds="STNVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="STNVO1Query"/>
+    <iterator Binds="PoplateSizeVo1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="PoplateSizeVo1Iterator"/>
+    <searchRegion Binds="PoplateSizeVo1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="PoplateSizeVo1Query"/>
+    <iterator Binds="ShipmentDCPO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="ShipmentDCPO1Iterator"/>
+    <searchRegion Binds="ShipmentDCPO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ShipmentDCPO1Query"/>
+    <iterator Binds="BundleDetailVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="BundleDetailVO1Iterator"/>
+    <searchRegion Binds="BundleDetailVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="BundleDetailVO1Query"/>
+    <iterator Binds="MnjMfgRatioplanStnsAllView1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="MnjMfgRatioplanStnsAllView1Iterator"/>
+    <searchRegion Binds="MnjMfgRatioplanStnsAllView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MnjMfgRatioplanStnsAllView1Query"/>
+    <iterator Binds="BPOVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="BPOVO1Iterator"/>
+    <searchRegion Binds="BPOVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="BPOVO1Query"/>
+    <iterator Binds="RollNo1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="RollNo1Iterator"/>
+    <searchRegion Binds="RollNo1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="RollNo1Query"/>
+    <iterator Binds="partsLov1" RangeSize="2000"
+              DataControl="AppModuleDataControl" id="partsLov1Iterator"/>
+    <searchRegion Binds="partsLov1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="partsLov1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="RatioplanNumber">
+      <AttrNames>
+        <Item Value="RatioplanNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="RatioplanDate">
+      <AttrNames>
+        <Item Value="RatioplanDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="ExtraCutPercent">
+      <AttrNames>
+        <Item Value="ExtraCutPercent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="ToleranceExtraPercent">
+      <AttrNames>
+        <Item Value="ToleranceExtraPercent"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <tree IterBinding="MnjMfgRatioplanPlylineView1Iterator"
+          id="MnjMfgRatioplanPlylineView1">
+      <nodeDefinition DefName="mnj.mfg.model.views.MnjMfgRatioplanPlylineView"
+                      Name="MnjMfgRatioplanPlylineView10">
+        <AttrNames>
+          <Item Value="Ply"/>
+          <Item Value="Totalpcs"/>
+          <Item Value="RpForId"/>
+          <Item Value="CutNo"/>
+          <Item Value="ShipPriority"/>
+          <Item Value="Pattern"/>
+          <Item Value="InseamPattern"/>
+          <Item Value="TotalInseamQty"/>
+          <Item Value="BlncInseamQty"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="MnjMfgRatioplanPlylineView1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="MnjMfgRatioplanPlylineView1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="MnjMfgRatioplanSizlineView1Iterator"
+          id="MnjMfgRatioplanSizlineView1">
+      <nodeDefinition DefName="mnj.mfg.model.views.MnjMfgRatioplanSizlineView"
+                      Name="MnjMfgRatioplanSizlineView10">
+        <AttrNames>
+          <Item Value="SizlineId"/>
+          <Item Value="SizeId"/>
+          <Item Value="Remarks"/>
+          <Item Value="CuttingRatio"/>
+          <Item Value="TotalRatio"/>
+          <Item Value="DivisionId"/>
+          <Item Value="Pcs"/>
+          <Item Value="Inseam"/>
+          <Item Value="SizeQty"/>
+          <Item Value="PlanCutQty"/>
+          <Item Value="BalQty"/>
+          <Item Value="PlanQty"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="MnjMfgRatioplanSizlineView1Iterator" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="MnjMfgRatioplanSizlineView1Iterator" id="Delete1"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="MnjMfgRatioplanPlycflineView1Iterator"
+          id="MnjMfgRatioplanPlycflineView1">
+      <nodeDefinition DefName="mnj.mfg.model.views.MnjMfgRatioplanPlycflineView"
+                      Name="MnjMfgRatioplanPlycflineView10">
+        <AttrNames>
+          <Item Value="CutNo"/>
+          <Item Value="NoOfPly"/>
+          <Item Value="TotalPcs"/>
+          <Item Value="Remarks"/>
+          <Item Value="BlncPly"/>
+          <Item Value="BlncPcs"/>
+          <Item Value="SrCutNo"/>
+          <Item Value="ProductionType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="MnjMfgRatioplanPlycflineView1Iterator"
+            id="CreateInsert2" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="MnjMfgRatioplanPlycflineView1Iterator" id="Delete2"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="ItemDescription">
+      <AttrNames>
+        <Item Value="ItemDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="RatioplanId">
+      <AttrNames>
+        <Item Value="RatioplanId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="InventoryItemId">
+      <AttrNames>
+        <Item Value="InventoryItemId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="callCreateRouting"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="callCreateRouting"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.callCreateRouting_AppModuleDataControl_dataProvider_callCreateRouting_result">
+      <NamedData NDName="inventoryID" NDType="int"/>
+      <NamedData NDName="rationPlanID" NDType="int"/>
+    </methodAction>
+    <methodAction id="callBOM" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="callBOM"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.callBOM_AppModuleDataControl_dataProvider_callBOM_result">
+      <NamedData NDName="inventoryID" NDType="int"/>
+      <NamedData NDName="rationPlanID" NDType="int"/>
+    </methodAction>
+    <methodAction id="callItem" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="callItem"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.callItem_AppModuleDataControl_dataProvider_callItem_result">
+      <NamedData NDName="inventoryID" NDType="int"/>
+      <NamedData NDName="rationPlanID" NDType="int"/>
+    </methodAction>
+    <attributeValues IterBinding="MnjMfgRatioplanSizlineView1Iterator"
+                     id="TotalRatio">
+      <AttrNames>
+        <Item Value="TotalRatio"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanPlylineView1Iterator"
+                     id="Totalpcs">
+      <AttrNames>
+        <Item Value="Totalpcs"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanPlylineView1Iterator"
+                     id="TotalPieces">
+      <AttrNames>
+        <Item Value="TotalPieces"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="MnjMfgRatioplanOblineView1Iterator"
+          id="MnjMfgRatioplanOblineView1">
+      <nodeDefinition DefName="mnj.mfg.model.views.MnjMfgRatioplanOblineView"
+                      Name="MnjMfgRatioplanOblineView10">
+        <AttrNames>
+          <Item Value="DivisionId"/>
+          <Item Value="RatioplanId"/>
+          <Item Value="RatioplanNumber"/>
+          <Item Value="OblineId"/>
+          <Item Value="SalesorderId"/>
+          <Item Value="SolineId"/>
+          <Item Value="InseamId"/>
+          <Item Value="Quantity"/>
+          <Item Value="JobId"/>
+          <Item Value="JobStatus"/>
+          <Item Value="PostedStatus"/>
+          <Item Value="SolineNumber"/>
+          <Item Value="WipJobId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="OrderLineId">
+      <AttrNames>
+        <Item Value="OrderLineId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanPlylineView1Iterator"
+                     id="ToTalLays">
+      <AttrNames>
+        <Item Value="ToTalLays"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanPlylineView1Iterator" id="Ply">
+      <AttrNames>
+        <Item Value="Ply"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="setValues"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setValues"
+                  IsViewObjectMethod="false"/>
+    <attributeValues IterBinding="MnjMfgRatioplanSizlineView1Iterator"
+                     id="TotalPcs">
+      <AttrNames>
+        <Item Value="TotalPcs"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="InseamLineId">
+      <AttrNames>
+        <Item Value="InseamLineId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="createJob"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="createJob"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.createJob_AppModuleDataControl_dataProvider_createJob_result">
+      <NamedData NDName="rationPlanID" NDType="int"/>
+    </methodAction>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="ItemCode">
+      <AttrNames>
+        <Item Value="ItemCode"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="STNVO1Iterator" id="STNVO1">
+      <nodeDefinition DefName="mnj.mfg.model.lov.views.STNVO" Name="STNVO10">
+        <AttrNames>
+       
+         
+          <Item Value="OrderedItem"/>
+         
+          
+         
+         
+         
+          <Item Value="MultiSelect"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="populateSTNs"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="populateSTNs"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.populateSTNs_AppModuleDataControl_dataProvider_populateSTNs_result">
+      <NamedData NDName="saleOrderId" NDValue="" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="setSTNWhereClause"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSTNWhereClause"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="saleOrderId" NDType="java.lang.String"/>
+    </methodAction>
+    <listOfValues StaticList="false" IterBinding="MnjMfgRatioplanView1Iterator"
+                  Uses="LOV_Style" id="Style"/>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="BuyerId">
+      <AttrNames>
+        <Item Value="BuyerId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="MinBndSize">
+      <AttrNames>
+        <Item Value="MinBndSize"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="MaxBndSize">
+      <AttrNames>
+        <Item Value="MaxBndSize"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="PoplateSizeVo1Iterator" id="PoplateSizeVo1">
+      <nodeDefinition DefName="mnj.mfg.model.lov.views.PoplateSizeVo"
+                      Name="PoplateSizeVo10">
+        <AttrNames>
+          <Item Value="ObRef"/>
+          <Item Value="OrderedItem"/>
+          <Item Value="Description"/>
+          <Item Value="InseamQty"/>
+          <Item Value="DeliveryDate"/>
+          <Item Value="DeliveryTerm"/>
+          <Item Value="ShipMode"/>
+          <Item Value="Country"/>
+          <Item Value="InseamSizeConcat"/>
+          <Item Value="SizeQty"/>
+          <Item Value="Color"/>
+          <Item Value="SizeValue"/>
+          <Item Value="MultiSelect" Binds="MultiSelect"/>
+          <Item Value="Size1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="PoplateSizeVo1Iterator" id="MultiSelect"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="MultiSelect"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <methodAction id="PopulateSize"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="PopulateSize"
+                  IsViewObjectMethod="false"/>
+    <tree IterBinding="ShipmentDCPO1Iterator" id="ShipmentDCPO1">
+      <nodeDefinition DefName="mnj.mfg.model.lov.ShipmentDCPO"
+                      Name="ShipmentDCPO10">
+        <AttrNames>
+          <Item Value="ObRef"/>
+          <Item Value="OrderedItem"/>
+          <Item Value="Description"/>
+          <Item Value="DcpoNo"/>
+          <Item Value="DeliveryDate"/>
+          <Item Value="DeliveryTerm"/>
+          <Item Value="Country"/>
+          <Item Value="InseamSizeConcat"/>
+          <Item Value="SizeQty"/>
+          <Item Value="InseamQty"/>
+          <Item Value="BpoNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="getPreSizeBlnc"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getPreSizeBlnc"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.getPreSizeBlnc_AppModuleDataControl_dataProvider_getPreSizeBlnc_result">
+      <NamedData NDName="rationPlanID" NDType="java.lang.String"/>
+      <NamedData NDName="sizeVal" NDType="java.lang.String"/>
+      <NamedData NDName="sizeId" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="refreshSizeBlnc"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="refreshSizeBlnc"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="rationPlanID" NDType="java.lang.String"/>
+      <NamedData NDName="sizeVal" NDType="java.lang.String"/>
+      <NamedData NDName="sizeId" NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="BundleDetailVO1Iterator" id="BundleDetailVO1">
+      <nodeDefinition DefName="mnj.mfg.model.views.BundleDetailVO"
+                      Name="BundleDetailVO10">
+        <AttrNames>
+          <Item Value="SizeValue"/>
+          <Item Value="BundleNo"/>
+          <Item Value="FromPieceNo"/>
+          <Item Value="ToPieceNo"/>
+          <Item Value="Shade"/>
+          <Item Value="Parts"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="BundleDetailVO1Iterator" id="Delete4"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <methodAction id="makeBundles"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="makeBundles"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="createCutNos"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="createCutNos"
+                  IsViewObjectMethod="false"/>
+    <tree IterBinding="MnjMfgRatioplanStnsAllView1Iterator"
+          id="MnjMfgRatioplanStnsAllView1">
+      <nodeDefinition DefName="mnj.mfg.model.views.MnjMfgRatioplanStnsAllView"
+                      Name="MnjMfgRatioplanStnsAllView10">
+        <AttrNames>
+          <Item Value="BpoNo"/>
+          <Item Value="StnNo"/>
+          <Item Value="ItemCode"/>
+          <Item Value="ItemDescription"/>
+          <Item Value="OrgId"/>
+          <Item Value="StnQty"/>
+          <Item Value="JobName"/>
+          <Item Value="JobStatus"/>
+          <Item Value="StnSequence"/>
+          <Item Value="BpoId"/>
+          <Item Value="InventoryItemId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="MnjMfgRatioplanStnsAllView1Iterator" id="Delete6"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="Season">
+      <AttrNames>
+        <Item Value="Season"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="Deviation">
+      <AttrNames>
+        <Item Value="Deviation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="DeviatonPrcnt">
+      <AttrNames>
+        <Item Value="DeviatonPrcnt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="SalesorderId">
+      <AttrNames>
+        <Item Value="SalesorderId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="MnjMfgRatioplanView1Iterator"
+                  Uses="LOV_BuyerName" id="BuyerName"/>
+    <methodAction id="createCutNosNew"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="createCutNosNew"
+                  IsViewObjectMethod="false"/>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="OrderQty">
+      <AttrNames>
+        <Item Value="OrderQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="CutQty">
+      <AttrNames>
+        <Item Value="CutQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="PlanDev">
+      <AttrNames>
+        <Item Value="PlanDev"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="PlanDevPrcnt">
+      <AttrNames>
+        <Item Value="PlanDevPrcnt"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="MnjMfgRatioplanView1Iterator"
+                  Uses="LOV_Unit" id="Unit"/>
+    <list IterBinding="MnjMfgRatioplanView1Iterator" StaticList="false"
+          Uses="LOV_Osp" id="Osp1" DTSupportsMRU="true"/>
+    <listOfValues StaticList="false" IterBinding="MnjMfgRatioplanView1Iterator"
+                  Uses="LOV_OspUnit" id="OspUnit"/>
+    <button IterBinding="BPOVO1Iterator" id="BPOFlag" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="BPOFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <methodAction id="setBPOWhereClause"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setBPOWhereClause"
+                  IsViewObjectMethod="false"/>
+    <tree IterBinding="BPOVO1Iterator" id="BPOVO1">
+      <nodeDefinition DefName="mnj.mfg.model.lov.BPOVO" Name="BPOVO10">
+        <AttrNames>
+          <Item Value="BpoNo"/>
+          <Item Value="CustPoNumber"/>
+          <Item Value="BPOFlag" Binds="BPOFlag"/>
+          <Item Value="BpoQty"/>
+          <Item Value="ShipDate"/>
+          <Item Value="NewPo"/>
+          <Item Value="Wash"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="BPOVO1Iterator" id="BpoNo1" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="BpoNo"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <methodAction id="popBPO" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="popBPO"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="copySize" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="copySize"
+                  IsViewObjectMethod="false"/>
+    <tree IterBinding="RollNo1Iterator" id="RollNo1">
+      <nodeDefinition DefName="mnj.mfg.model.lov.RollNo" Name="RollNo10">
+        <AttrNames>
+          <Item Value="RollNo"/>
+          <Item Value="Shade"/>
+          <Item Value="StyleName"/>
+          <Item Value="Shrinkage"/>
+          <Item Value="RollLength"/>
+          <Item Value="RolFlag" Binds="RolFlag"/>
+          <Item Value="ShrinkPattern"/>
+          <Item Value="CutWidth"/>
+          <Item Value="SupplierRollNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="RollNo1Iterator" id="RolFlag" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="RolFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <methodAction id="popRollNo"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="popRollNo"
+                  IsViewObjectMethod="false"/>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="LastAction">
+      <AttrNames>
+        <Item Value="LastAction"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="getPlanQty"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getPlanQty"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.getPlanQty_AppModuleDataControl_dataProvider_getPlanQty_result">
+      <NamedData NDName="rationPlanID" NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="STNVO1Iterator" id="STNVO11">
+      <nodeDefinition DefName="mnj.mfg.model.lov.views.STNVO" Name="STNVO110">
+        <AttrNames>
+          <Item Value="OrderedQty"/>
+          <Item Value="Stn"/>
+          <Item Value="OrderedItem"/>
+          <Item Value="Description"/>
+          <Item Value="MultiSelect"/>
+          <Item Value="StnFlag" Binds="StnFlag"/>
+          <Item Value="BpoNo"/>
+          <Item Value="BpoId"/>
+          <Item Value="SystemId"/>
+          <Item Value="InventoryItemId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="STNVO1Iterator" id="StnFlag" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="StnFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <methodAction id="popSTN" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="popSTN"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="setSTNWhereClause1"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSTNWhereClause"
+                  IsViewObjectMethod="false"/>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="RatioPlanQty">
+      <AttrNames>
+        <Item Value="RatioPlanQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="ColorId">
+      <AttrNames>
+        <Item Value="ColorId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="selectAllLines"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="selectAllLines"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="flag" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="setPopulateSizeWhereClause"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setPopulateSizeWhereClause"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="inseam" NDType="java.lang.String"/>
+    </methodAction>
+    <action IterBinding="BundleDetailVO1Iterator" id="CreateInsert6" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <listOfValues StaticList="false" IterBinding="MnjMfgRatioplanPlylineView1Iterator" Uses="LOV_InseamPattern"
+                  id="InseamPattern"/>
+    <methodAction id="TotalBalanceQuantity"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="TotalBalanceQuantity"
+                  IsViewObjectMethod="false"/>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="BookingConsumption">
+      <AttrNames>
+        <Item Value="BookingConsumption"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="ProductionConsumption">
+      <AttrNames>
+        <Item Value="ProductionConsumption"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="UpdateJobQuantity"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="UpdateJobQuantity"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.UpdateJobQuantity_AppModuleDataControl_dataProvider_UpdateJobQuantity_result"/>
+    <tree IterBinding="partsLov1Iterator" id="partsLov1">
+      <nodeDefinition DefName="mnj.mfg.model.lov.partsLov" Name="partsLov10">
+        <AttrNames>
+          <Item Value="FlexValue"/>
+          <Item Value="Description"/>
+          <Item Value="Flag"/>
+          <Item Value="SelectionFlag" Binds="SelectionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="populateBundlesParts"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="populateBundlesParts"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="RefreshBlocks"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="RefreshBlocks"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="CalculateResource"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="CalculateResource"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.CalculateResource_AppModuleDataControl_dataProvider_CalculateResource_result">
+      <NamedData NDName="rationPlanID" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="AssignSubInventories"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="AssignSubInventories"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.AssignSubInventories_AppModuleDataControl_dataProvider_AssignSubInventories_result">
+      <NamedData NDName="rationPlanID" NDType="java.lang.String"/>
+    </methodAction>
+    <button IterBinding="partsLov1Iterator" id="SelectionFlag"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="SelectionFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="Color">
+      <AttrNames>
+        <Item Value="Color"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="MnjMfgRatioplanView1Iterator"
+                  Uses="LOV_FinishedGarmentsColor" id="FinishedGarmentsColor"/>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="Wash">
+      <AttrNames>
+        <Item Value="Wash"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="Creator">
+      <AttrNames>
+        <Item Value="Creator"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="CreationDate">
+      <AttrNames>
+        <Item Value="CreationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="Updater">
+      <AttrNames>
+        <Item Value="Updater"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator"
+                     id="LastUpdateDate">
+      <AttrNames>
+        <Item Value="LastUpdateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="MnjMfgRatioplanView1Iterator"
+                  Uses="LOV_Combineattribute" id="Combineattribute"/>
+    <listOfValues StaticList="false" IterBinding="MnjMfgRatioplanView1Iterator"
+                  Uses="LOV_SystemId" id="SystemId"/>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="DivisionId">
+      <AttrNames>
+        <Item Value="DivisionId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

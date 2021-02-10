@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="NewInseamLOV"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="mnj.mfg.model.lov.views.NewInseamLOVRowImpl"
+  ComponentClass="mnj.mfg.model.lov.views.NewInseamLOVImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.mfg.model.lov.views.NewInseamLOV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="P_RATIO_PLAN_ID"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.context.sessionScope.ratioPlanIdS]]></TransientExpression>
+  </Variable>
+  <SQLQuery>
+    <![CDATA[SELECT INSEAM,
+SUM (STN_QTY) size_qty,
+ROUND (SUM (STN_QTY) + SUM (STN_QTY) * EXTRA_CUT_PERCENT / 100)
+BALNC_INSEAM_QTY
+FROM (SELECT DISTINCT mmsta.BPO_ID,
+H.QTY STN_QTY,
+SV.INSEAM,
+mmr.EXTRA_CUT_PERCENT
+FROM MNJ_MFG_RATIOPLAN mmr,
+MNJ_MFG_RATIOPLAN_STNS_ALL mmsta,
+XX_OM_BPO_INFO_T D,
+XX_OM_SIZEWISE_L_T H,
+mnj_mfg_ratio_size_v sv
+WHERE mmr.RATIOPLAN_ID = mmsta.RATIOPLAN_ID
+AND mmsta.BPO_ID = D.BPO_ID
+AND D.BPO_ID = H.BPO_ID
+AND H.SIZE_NAME = sv.SIZE_INSEAM
+--AND to_char(h.SOLINE_ID) = to_char(mmsta.STN_NO)
+AND mmsta.ratioplan_id = :P_RATIO_PLAN_ID
+--AND d.SO_OBINSLINE_ID = h.SO_OBINSLINE_ID
+)
+GROUP BY INSEAM, EXTRA_CUT_PERCENT]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="Inseam"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="INSEAM"
+    Expression="INSEAM"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Sizeqty"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="SIZE_QTY"
+    Expression="SIZEQTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Balncinseamqty"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="BALNC_INSEAM_QTY"
+    Expression="BALNCINSEAMQTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RatioplanId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="RATIOPLAN_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="mnj.mfg.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

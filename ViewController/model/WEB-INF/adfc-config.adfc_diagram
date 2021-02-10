@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="linkStyle">Polyline</property>
+   </OverallProperties>
+   <View
+      id="View2">
+      <property
+         name="activityId">Query</property>
+      <property
+         name="page">/Query.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Query&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">139.29883</property>
+      <property
+         name="x">174.0</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">Edit</property>
+      <property
+         name="page">/Edit.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Edit&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">148.49414</property>
+      <property
+         name="x">448.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">goEdit</property>
+      <property
+         name="sdm:polyPoints">R50,218.05576,135.44824,290.0,216.34473,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View3"
+      to="View2">
+      <property
+         name="fromOutcome">goBrowse</property>
+      <property
+         name="sdm:polyPoints">L50,286.9009,223.34473,215.0,142.44824,R50</property>
+   </ControlFlowCase>
+</SDM>

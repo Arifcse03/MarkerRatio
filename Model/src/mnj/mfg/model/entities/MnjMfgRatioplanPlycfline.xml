@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MnjMfgRatioplanPlycfline"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="MNJ_MFG_RATIOPLAN_PLYCFLINE"
+  AliasName="MnjMfgRatioplanPlycfline"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="mnj.mfg.model.entities.MnjMfgRatioplanPlycflineImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="DivisionId"
+    Precision="6"
+    ColumnName="DIVISION_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RatioplanId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="RATIOPLAN_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RatioplanNumber"
+    Precision="15"
+    Scale="0"
+    ColumnName="RATIOPLAN_NUMBER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PlylineId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="PLYLINE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PlycflineId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="PLYCFLINE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Fabricwidth"
+    Precision="15"
+    ColumnName="FABRICWIDTH"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FabricPattern"
+    Precision="5"
+    ColumnName="FABRIC_PATTERN"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Markerlength"
+    Precision="8"
+    Scale="2"
+    ColumnName="MARKERLENGTH"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Cf"
+    Precision="8"
+    Scale="2"
+    ColumnName="CF"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ExtraMtr"
+    Precision="8"
+    Scale="3"
+    ColumnName="EXTRA_MTR"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CuttingRatio"
+    Precision="2"
+    Scale="0"
+    ColumnName="CUTTING_RATIO"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="15"
+    Scale="0"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="15"
+    Scale="0"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Shrinkage"
+    ColumnName="SHRINKAGE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CutNo"
+    Precision="200"
+    ColumnName="CUT_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NoOfPly"
+    ColumnName="NO_OF_PLY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TotalPcs"
+    ColumnName="TOTAL_PCS"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Remarks"
+    Precision="200"
+    ColumnName="REMARKS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SrCutNo"
+    ColumnName="SR_CUT_NO"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BlncPly"
+    ColumnName="BLNC_PLY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BlncPcs"
+    ColumnName="BLNC_PCS"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ProductionType"
+    Precision="250"
+    ColumnName="PRODUCTION_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_RATIOPLAN_PLYCFLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="MnjMfgRatioplanPlyline"
+    Association="mnj.mfg.model.entities.MnjMfgPlycflineFkAssoc"
+    AssociationEnd="mnj.mfg.model.entities.MnjMfgPlycflineFkAssoc.MnjMfgRatioplanPlyline"
+    AssociationOtherEnd="mnj.mfg.model.entities.MnjMfgPlycflineFkAssoc.MnjMfgRatioplanPlycfline"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="MarkerLayplanDet"
+    Association="mnj.mfg.model.entities.MnjMfgMarkerLayplanDetFk1Assoc1"
+    AssociationEnd="mnj.mfg.model.entities.MnjMfgMarkerLayplanDetFk1Assoc1.MarkerLayplanDet"
+    AssociationOtherEnd="mnj.mfg.model.entities.MnjMfgMarkerLayplanDetFk1Assoc1.MnjMfgRatioplanPlycfline"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="MnjMfgPlycflinePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="MNJ_MFG_PLYCFLINE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="mnj.mfg.model.entities.MnjMfgRatioplanPlycfline.RatioplanId"/>
+      <Item Value="mnj.mfg.model.entities.MnjMfgRatioplanPlycfline.PlylineId"/>
+      <Item
+        Value="mnj.mfg.model.entities.MnjMfgRatioplanPlycfline.PlycflineId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC00408363">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C00408363"/>
+      <Attr Name="_checkCondition" Value='"RATIOPLAN_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="mnj.mfg.model.entities.MnjMfgRatioplanPlycfline.RatioplanId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC00408364">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C00408364"/>
+      <Attr Name="_checkCondition" Value='"PLYLINE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.MnjMfgRatioplanPlycfline.PlylineId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC00408365">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C00408365"/>
+      <Attr Name="_checkCondition" Value='"PLYCFLINE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="mnj.mfg.model.entities.MnjMfgRatioplanPlycfline.PlycflineId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="MnjMfgPlycflineFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="MNJ_MFG_RPPLYLINE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="MNJ_MFG_PLYCFLINE_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="mnj.mfg.model.entities.MnjMfgRatioplanPlycfline.RatioplanId"/>
+      <Item Value="mnj.mfg.model.entities.MnjMfgRatioplanPlycfline.PlylineId"/>
+    </AttrArray>
+  </Key>
+</Entity>

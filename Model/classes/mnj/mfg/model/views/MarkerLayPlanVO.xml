@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MarkerLayPlanVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="mnj.mfg.model.views.MarkerLayPlanVORowImpl"
+  ComponentClass="mnj.mfg.model.views.MarkerLayPlanVOImpl"
+  OrderBy="DETAIL_ID">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.mfg.model.views.MarkerLayPlanVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="UOM1"
+    ViewObjectName="mnj.mfg.model.lov.UOM"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="RollNo1"
+    ViewObjectName="mnj.mfg.model.lov.RollNo"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="FabThcknessVO1"
+    ViewObjectName="mnj.mfg.model.lov.views.FabThcknessVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CutQtyUom"
+    ListVOName="UOM1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CutQtyUom"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UnitOfMeasure"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UnitOfMeasure"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CutRemQtyUom"
+    ListVOName="UOM1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CutRemQtyUom"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UnitOfMeasure"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UnitOfMeasure"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_EndBitUom"
+    ListVOName="UOM1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="EndBitUom"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UnitOfMeasure"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UnitOfMeasure"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_FabContUom"
+    ListVOName="UOM1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="FabContUom"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UnitOfMeasure"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UnitOfMeasure"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_MarkLengthUom"
+    ListVOName="UOM1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MarkLengthUom"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UnitOfMeasure"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UnitOfMeasure"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_MarkWidthUom"
+    ListVOName="UOM1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MarkWidthUom"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UnitOfMeasure"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UnitOfMeasure"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RollNo"
+    ListVOName="RollNo1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RollNo"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="FabricContain"/>
+      <Item Value="ShrinkPrcnt"/>
+      <Item Value="Shade"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="RollNo"/>
+      <Item Value="RollLength"/>
+      <Item Value="Shrinkage"/>
+      <Item Value="Shade"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="RollNo"/>
+      <Item Value="RollLength"/>
+      <Item Value="Shrinkage"/>
+      <Item Value="Shade"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_FabGsm"
+    ListVOName="FabThcknessVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="FabGsm"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="FabGsmUom"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Weight"/>
+      <Item Value="WeightType"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Weight"/>
+      <Item Value="WeightType"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT MarkerLayplanDet.CUT_QTY, 
+       MarkerLayplanDet.CUT_QTY_UOM, 
+       MarkerLayplanDet.CUT_REM_QTY, 
+       MarkerLayplanDet.CUT_REM_QTY_UOM, 
+       MarkerLayplanDet.DETAIL_ID, 
+       MarkerLayplanDet.END_BIT, 
+       MarkerLayplanDet.END_BIT_UOM, 
+       MarkerLayplanDet.FAB_CONT_UOM, 
+       MarkerLayplanDet.FAB_GSM, 
+       MarkerLayplanDet.FAB_GSM_UOM, 
+       MarkerLayplanDet.FAB_WIDTH, 
+       MarkerLayplanDet.FABRIC_CONTAIN, 
+       MarkerLayplanDet.LAY, 
+       MarkerLayplanDet.LAY_REM_QTY, 
+       MarkerLayplanDet.MARK_LENGTH, 
+       MarkerLayplanDet.MARK_LENGTH_UOM, 
+       MarkerLayplanDet.MARK_WIDTH, 
+       MarkerLayplanDet.MARK_WIDTH_UOM, 
+       MarkerLayplanDet.MARKER_NO, 
+       MarkerLayplanDet.PLYLINE_ID, 
+       MarkerLayplanDet.RATIO_QTY, 
+       MarkerLayplanDet.RATIOPLAN_ID, 
+       MarkerLayplanDet.RECEIPT_NO, 
+       MarkerLayplanDet.ROLL_NO, 
+       MarkerLayplanDet.SHADE, 
+       MarkerLayplanDet.SHRINK_PRCNT, 
+       MarkerLayplanDet.END_BIT2, 
+       MarkerLayplanDet.END_BIT_UOM2, 
+       MarkerLayplanDet.MARK_LENGTH2, 
+       MarkerLayplanDet.MARK_LENGTH_UOM2, 
+       MarkerLayplanDet.FAB_CON_INCH, 
+       MarkerLayplanDet.FAB_CON_INCH_UOM, 
+       MarkerLayplanDet.CUT_WIDTH, 
+       MarkerLayplanDet.SHRINK_PATTERN,
+       MarkerLayplanDet.SUPPLIER_ROLL_NO, 
+       MarkerLayplanDet.PLYCFLINE_ID,
+       MarkerLayplanDet.CREATED_BY,
+       MarkerLayplanDet.CREATION_DATE,
+       MarkerLayplanDet.LAST_UPDATED_BY,
+       MarkerLayplanDet.LAST_UPDATE_DATE
+FROM MNJ_MFG_MARKER_LAYPLAN_DET MarkerLayplanDet]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="MarkerLayplanDet"
+    Entity="mnj.mfg.model.entities.MarkerLayplanDet"/>
+  <ViewAttribute
+    Name="CutQty"
+    PrecisionRule="true"
+    EntityAttrName="CutQty"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="CUT_QTY"/>
+  <ViewAttribute
+    Name="CutQtyUom"
+    LOVName="LOV_CutQtyUom"
+    PrecisionRule="true"
+    DefaultValue="Piece"
+    EntityAttrName="CutQtyUom"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="CUT_QTY_UOM">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CutRemQty"
+    PrecisionRule="true"
+    EntityAttrName="CutRemQty"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="CUT_REM_QTY"/>
+  <ViewAttribute
+    Name="CutRemQtyUom"
+    LOVName="LOV_CutRemQtyUom"
+    PrecisionRule="true"
+    DefaultValue="Piece"
+    EntityAttrName="CutRemQtyUom"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="CUT_REM_QTY_UOM">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DetailId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DetailId"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="DETAIL_ID"/>
+  <ViewAttribute
+    Name="EndBit"
+    PrecisionRule="true"
+    EntityAttrName="EndBit"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="END_BIT"/>
+  <ViewAttribute
+    Name="EndBitUom"
+    LOVName="LOV_EndBitUom"
+    PrecisionRule="true"
+    DefaultValue="Yard"
+    EntityAttrName="EndBitUom"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="END_BIT_UOM">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FabContUom"
+    LOVName="LOV_FabContUom"
+    PrecisionRule="true"
+    DefaultValue="Yard"
+    EntityAttrName="FabContUom"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="FAB_CONT_UOM">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FabGsm"
+    PrecisionRule="true"
+    EntityAttrName="FabGsm"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="FAB_GSM"
+    LOVName="LOV_FabGsm">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FabGsmUom"
+    PrecisionRule="true"
+    EntityAttrName="FabGsmUom"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="FAB_GSM_UOM"/>
+  <ViewAttribute
+    Name="FabWidth"
+    PrecisionRule="true"
+    EntityAttrName="FabWidth"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="FAB_WIDTH"/>
+  <ViewAttribute
+    Name="FabricContain"
+    PrecisionRule="true"
+    EntityAttrName="FabricContain"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="FABRIC_CONTAIN"/>
+  <ViewAttribute
+    Name="Lay"
+    PrecisionRule="true"
+    EntityAttrName="Lay"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="LAY"/>
+  <ViewAttribute
+    Name="LayRemQty"
+    PrecisionRule="true"
+    EntityAttrName="LayRemQty"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="LAY_REM_QTY"/>
+  <ViewAttribute
+    Name="MarkLength"
+    PrecisionRule="true"
+    EntityAttrName="MarkLength"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="MARK_LENGTH"/>
+  <ViewAttribute
+    Name="MarkLengthUom"
+    LOVName="LOV_MarkLengthUom"
+    PrecisionRule="true"
+    DefaultValue="Yard"
+    EntityAttrName="MarkLengthUom"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="MARK_LENGTH_UOM">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MarkWidth"
+    PrecisionRule="true"
+    EntityAttrName="MarkWidth"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="MARK_WIDTH"/>
+  <ViewAttribute
+    Name="MarkWidthUom"
+    LOVName="LOV_MarkWidthUom"
+    PrecisionRule="true"
+    DefaultValue="Inch"
+    EntityAttrName="MarkWidthUom"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="MARK_WIDTH_UOM">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MarkerNo"
+    PrecisionRule="true"
+    EntityAttrName="MarkerNo"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="MARKER_NO"/>
+  <ViewAttribute
+    Name="PlylineId"
+    PrecisionRule="true"
+    EntityAttrName="PlylineId"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="PLYLINE_ID"/>
+  <ViewAttribute
+    Name="RatioQty"
+    PrecisionRule="true"
+    EntityAttrName="RatioQty"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="RATIO_QTY"/>
+  <ViewAttribute
+    Name="RatioplanId"
+    PrecisionRule="true"
+    EntityAttrName="RatioplanId"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="RATIOPLAN_ID"/>
+  <ViewAttribute
+    Name="ReceiptNo"
+    PrecisionRule="true"
+    EntityAttrName="ReceiptNo"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="RECEIPT_NO"/>
+  <ViewAttribute
+    Name="RollNo"
+    LOVName="LOV_RollNo"
+    PrecisionRule="true"
+    EntityAttrName="RollNo"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="ROLL_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Shade"
+    PrecisionRule="true"
+    EntityAttrName="Shade"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="SHADE"/>
+  <ViewAttribute
+    Name="ShrinkPrcnt"
+    PrecisionRule="true"
+    EntityAttrName="ShrinkPrcnt"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="SHRINK_PRCNT"/>
+  <ViewAttribute
+    Name="EndBit2"
+    PrecisionRule="true"
+    EntityAttrName="EndBit2"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="END_BIT2"/>
+  <ViewAttribute
+    Name="EndBitUom2"
+    PrecisionRule="true"
+    DefaultValue="Inch"
+    EntityAttrName="EndBitUom2"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="END_BIT_UOM2"/>
+  <ViewAttribute
+    Name="MarkLength2"
+    PrecisionRule="true"
+    EntityAttrName="MarkLength2"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="MARK_LENGTH2"/>
+  <ViewAttribute
+    Name="MarkLengthUom2"
+    PrecisionRule="true"
+    DefaultValue="Inch"
+    EntityAttrName="MarkLengthUom2"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="MARK_LENGTH_UOM2"/>
+  <ViewAttribute
+    Name="FabConInch"
+    PrecisionRule="true"
+    EntityAttrName="FabConInch"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="FAB_CON_INCH"/>
+  <ViewAttribute
+    Name="FabConInchUom"
+    PrecisionRule="true"
+    EntityAttrName="FabConInchUom"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="FAB_CON_INCH_UOM"
+    DefaultValue="Inch"/>
+  <ViewAttribute
+    Name="CutWidth"
+    PrecisionRule="true"
+    EntityAttrName="CutWidth"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="CUT_WIDTH"/>
+  <ViewAttribute
+    Name="ShrinkPattern"
+    PrecisionRule="true"
+    EntityAttrName="ShrinkPattern"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="SHRINK_PATTERN"/>
+  <ViewAttribute
+    Name="SupplierRollNo"
+    PrecisionRule="true"
+    AliasName="SUPPLIER_ROLL_NO"
+    EntityAttrName="SupplierRollNo"
+    EntityUsage="MarkerLayplanDet"/>
+  <ViewAttribute
+    Name="PlycflineId"
+    PrecisionRule="true"
+    AliasName="PLYCFLINE_ID"
+    EntityAttrName="PlycflineId"
+    EntityUsage="MarkerLayplanDet"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="MarkerLayplanDet"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="mnj.mfg.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

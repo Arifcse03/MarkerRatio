@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FINISHED_GARMENTS_COLOR_LOV"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.mfg.model.lov.FINISHED_GARMENTS_COLOR_LOV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="STYLE"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="SEASON"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="BUYER"
+    Kind="where"
+    Type="oracle.jbo.domain.Number"/>
+  <SQLQuery>
+    <![CDATA[SELECT distinct NVL (l.FINAL_FINISH_GOODS_COLOUR, l.colour) Finished_Garments_Color,
+       l.colour,
+       L.WASH_NAME
+  FROM MNJ_MFG_PRECOSTING_H H,
+       MNJ_MFG_PRECOSTING_L L,
+       mnj_precost_create_bpo_d d
+ WHERE     H.HEADER_ID = L.HEADER_ID
+       AND l.line_id = d.line_id(+)
+       --and case when l.CLASFIC <> 'BPO' then l.line_id  end =case when d.CLASSFIC = 'BPO' then d.line_id end
+       AND VERSION_NO =
+              (  SELECT MAX (VERSION_NO)
+                   FROM MNJ_MFG_PRECOSTING_H H2
+                  WHERE H2.HEADER_NO =  H.HEADER_NO AND H2.GM_APPROVAL = 'Y'
+               GROUP BY H2.HEADER_NO)
+       AND H.BUYER_ID = :BUYER
+       AND h.season = :SEASON
+       AND CASE
+              WHEN h.buyer_id <> 1046
+              THEN
+                 (CASE
+                     WHEN h.division = 'Style Name'
+                     THEN
+                        H.STYLE_NAME_NEW
+                     ELSE
+                        (CASE
+                            WHEN h.division = 'Style No.' THEN H.STYLE_NO
+                         END)
+                  END)
+              ELSE
+                  (CASE
+                       WHEN H.BUYER_ID = 1046
+                       THEN
+                          (CASE
+                              WHEN l.CLASFIC = 'BPO' THEN L.BPO_NO
+                              ELSE d.bpo_no
+                           END)
+                    END )
+                end=:STYLE]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="FinishedGarmentsColor"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FINISHED_GARMENTS_COLOR"
+    Expression="FINISHED_GARMENTS_COLOR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="25"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Colour"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="500"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COLOUR"
+    Expression="COLOUR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="25"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WashName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="500"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="WASH_NAME"
+    Expression="WASH_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="mnj.mfg.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

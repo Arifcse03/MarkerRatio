@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PlyBundleDetailVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  Where="(:Bind_RatioplanId = MnjMfgMarkerBundleDet.RATIOPLAN_ID) AND (:Bind_PlylineId = MnjMfgMarkerBundleDet.PLYLINE_ID)">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.mfg.model.views.viewlinks.PlyBundleDetailVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="MnjMfgRatioplanPlylineView"
+    Cardinality="1"
+    Owner="mnj.mfg.model.views.MnjMfgRatioplanPlylineView"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="MnjMfgRatioplanPlylineView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="mnj.mfg.model.views.MnjMfgRatioplanPlylineView.PlylineId"/>
+      <Item Value="mnj.mfg.model.views.MnjMfgRatioplanPlylineView.RatioplanId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="BundleDetailVO"
+    Cardinality="-1"
+    Owner="mnj.mfg.model.views.BundleDetailVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="BundleDetailVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.views.BundleDetailVO.PlylineId"/>
+      <Item Value="mnj.mfg.model.views.BundleDetailVO.RatioplanId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="mnj.mfg.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

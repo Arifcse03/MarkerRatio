@@ -357,7 +357,7 @@
   </ListBinding>
   <ListBinding
     Name="LOV_SystemId"
-    ListVOName="combinedAttribute1_1"
+    ListVOName="SystemIdLOV1"
     ListRangeSize="10"
     NullValueFlag="none"
     NullValueId="LOV_SystemId_LOVUIHints_NullValueId"
@@ -368,27 +368,19 @@
     <AttrArray Name="DerivedAttrNames">
       <Item Value="BuyerId"/>
       <Item Value="BuyerName"/>
-      <Item Value="Color"/>
-      <Item Value="Season"/>
-      <Item Value="Style"/>
-      <Item Value="Wash"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="SystemId"/>
       <Item Value="BuyerId"/>
-      <Item Value="Buyer"/>
-      <Item Value="Color"/>
-      <Item Value="Season"/>
-      <Item Value="Style"/>
-      <Item Value="Wash"/>
+      <Item Value="CustomerName"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="SystemId"/>
-      <Item Value="Buyer"/>
-      <Item Value="Season"/>
+      <Item Value="CustomerName"/>
       <Item Value="Style"/>
-      <Item Value="Color"/>
-      <Item Value="Wash"/>
+      <Item Value="Season"/>
+      <Item Value="Colour"/>
+      <Item Value="WashName"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
@@ -514,9 +506,15 @@
        and   SeasonDetailEO.SEASON_NAME = MnjMfgRatioplan.Season
        AND   StyleLineEO.HEADER_ID = pwcmfgbssbuyerh.HEADER_ID
        AND   SeasonDetailEO.LINE_ID = StyleLineEO.LINE_ID 
-       AND   rownum = 1)Current_Season
-  FROM MNJ_MFG_RATIOPLAN MnjMfgRatioplan
+       AND   rownum = 1)Current_Season,
+       ph.style New_style,
+       ph.season New_Season,
+       pl.color New_color,
+       pl.wash_name New_Wash
+  FROM MNJ_MFG_RATIOPLAN MnjMfgRatioplan,xx_om_poc_h_t ph,xx_om_poc_l_t pl
  where MnjMfgRatioplan.DIVISION_ID = :p_orgId
+ and PH.POC_ID=pl.poc_id
+ and MnjMfgRatioplan.SYSTEM_ID=pl.system_id
  ORDER BY RATIOPLAN_ID desc]]>
   </SQLQuery>
   <EntityUsage
@@ -1116,6 +1114,66 @@
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
+    Name="NewStyle"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NEW_STYLE"
+    Expression="NEW_STYLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NewSeason"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NEW_SEASON"
+    Expression="NEW_SEASON"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NewColor"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NEW_COLOR"
+    Expression="NEW_COLOR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NewWash"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NEW_WASH"
+    Expression="NEW_WASH"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
     Name="RatioPlanQtyNew"
     IsUpdateable="false"
     IsPersistent="false"
@@ -1166,7 +1224,7 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="CreationDate1_1_1_1_1_1_1_1_1_1"
+    Name="CreationDate1_1_1_1_1_1_1_1_1_1_1"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Date"

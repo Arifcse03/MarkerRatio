@@ -64,11 +64,6 @@
             <f:validator binding="#{bindings.Unit.validator}"/>
             <af:autoSuggestBehavior suggestedItems="#{bindings.Unit.suggestedItems}"/>
           </af:inputComboboxListOfValues>
-          <af:panelLabelAndMessage label="#{bindings.Color.hints.label}"
-                                   id="plam8" rendered="false">
-            <af:outputText value="#{bindings.Color.inputValue}" id="ot14"
-                           partialTriggers="finishedGarmentsColorId"/>
-          </af:panelLabelAndMessage>
           <af:inputListOfValues id="systemIdId"
                                 popupTitle="Search and Select: #{bindings.SystemId.hints.label}"
                                 value="#{bindings.SystemId.inputValue}"
@@ -76,50 +71,33 @@
                                 model="#{bindings.SystemId.listOfValuesModel}"
                                 required="#{bindings.SystemId.hints.mandatory}"
                                 columns="#{bindings.SystemId.hints.displayWidth}"
-                                shortDesc="#{bindings.SystemId.hints.tooltip}"
-                                readOnly="#{!bindings.Commit.enabled}">
+                                shortDesc="#{bindings.SystemId.hints.tooltip}">
             <f:validator binding="#{bindings.SystemId.validator}"/>
             <af:convertNumber groupingUsed="false"
                               pattern="#{bindings.SystemId.format}"/>
             <af:autoSuggestBehavior suggestedItems="#{bindings.SystemId.suggestedItems}"/>
           </af:inputListOfValues>
-          <af:inputComboboxListOfValues id="buyerNameId"
-                                        popupTitle="Search and Select: #{bindings.BuyerName.hints.label}"
-                                        value="#{bindings.BuyerName.inputValue}"
-                                        label="Buyer:"
-                                        model="#{bindings.BuyerName.listOfValuesModel}"
-                                        required="#{bindings.BuyerName.hints.mandatory}"
-                                        columns="#{bindings.BuyerName.hints.displayWidth}"
-                                        shortDesc="#{bindings.BuyerName.hints.tooltip}"
-                                        autoSubmit="true" readOnly="true"
-                                        partialTriggers="combineattributeId systemIdId">
-            <f:validator binding="#{bindings.BuyerName.validator}"/>
-            <af:autoSuggestBehavior suggestedItems="#{bindings.BuyerName.suggestedItems}"/>
-          </af:inputComboboxListOfValues>
-          <af:inputComboboxListOfValues id="styleId"
-                                        popupTitle="Search and Select: #{bindings.Style.hints.label}"
-                                        value="#{bindings.Style.inputValue}"
-                                        label="Style:"
-                                        model="#{bindings.Style.listOfValuesModel}"
-                                        required="#{bindings.Style.hints.mandatory}"
-                                        columns="#{bindings.Style.hints.displayWidth}"
-                                        shortDesc="#{bindings.Style.hints.tooltip}"
-                                        autoSubmit="true"
-                                        binding="#{backing_bean.styleName}"
-                                        readOnly="true"
-                                        partialTriggers="combineattributeId systemIdId">
-            <f:validator binding="#{bindings.Style.validator}"/>
-            <af:autoSuggestBehavior suggestedItems="#{bindings.Style.suggestedItems}"/>
-          </af:inputComboboxListOfValues>
-          <af:inputText value="#{bindings.Season.inputValue}" label="Season:"
-                        required="#{bindings.Season.hints.mandatory}"
-                        columns="#{bindings.Season.hints.displayWidth}"
-                        maximumLength="#{bindings.Season.hints.precision}"
-                        shortDesc="#{bindings.Season.hints.tooltip}" id="it88"
-                        partialTriggers="combineattributeId systemIdId" readOnly="true"
-                        binding="#{backing_bean.headerSeasonBinding}">
-            <f:validator binding="#{bindings.Season.validator}"/>
-          </af:inputText>
+          <af:panelLabelAndMessage label="Style:"
+                                   id="plam11">
+            <af:outputText value="#{bindings.NewStyle.inputValue}" id="ot26"/>
+          </af:panelLabelAndMessage>
+          <af:panelLabelAndMessage label="Season:"
+                                   id="plam12">
+            <af:outputText value="#{bindings.NewSeason.inputValue}" id="ot27"/>
+          </af:panelLabelAndMessage>
+          <af:panelLabelAndMessage label="Color:"
+                                   id="plam13">
+            <af:outputText value="#{bindings.NewColor.inputValue}" id="ot28"/>
+          </af:panelLabelAndMessage>
+          <af:panelLabelAndMessage label="Wash:"
+                                   id="plam14">
+            <af:outputText value="#{bindings.NewWash.inputValue}" id="ot29"/>
+          </af:panelLabelAndMessage>
+          <af:panelLabelAndMessage label="#{bindings.Color.hints.label}"
+                                   id="plam8" rendered="false">
+            <af:outputText value="#{bindings.Color.inputValue}" id="ot14"
+                           partialTriggers="finishedGarmentsColorId"/>
+          </af:panelLabelAndMessage>
           <af:inputListOfValues id="finishedGarmentsColorId"
                                 popupTitle="Search and Select: #{bindings.FinishedGarmentsColor.hints.label}"
                                 value="#{bindings.FinishedGarmentsColor.inputValue}"
@@ -134,26 +112,6 @@
             <f:validator binding="#{bindings.FinishedGarmentsColor.validator}"/>
             <af:autoSuggestBehavior suggestedItems="#{bindings.FinishedGarmentsColor.suggestedItems}"/>
           </af:inputListOfValues>
-          <af:inputText value="#{bindings.Color.inputValue}"
-                        label="Color:"
-                        required="#{bindings.Color.hints.mandatory}"
-                        columns="#{bindings.Color.hints.displayWidth}"
-                        maximumLength="#{bindings.Color.hints.precision}"
-                        shortDesc="#{bindings.Color.hints.tooltip}" id="it49"
-                        readOnly="true"
-                        partialTriggers="combineattributeId systemIdId"
-                        autoSubmit="true">
-            <f:validator binding="#{bindings.Color.validator}"/>
-          </af:inputText>
-          <af:inputText value="#{bindings.Wash.inputValue}" label="Wash"
-                        required="#{bindings.Wash.hints.mandatory}"
-                        columns="#{bindings.Wash.hints.displayWidth}"
-                        maximumLength="#{bindings.Wash.hints.precision}"
-                        shortDesc="#{bindings.Wash.hints.tooltip}" id="it122"
-                        readOnly="true" autoSubmit="true"
-                        partialTriggers="combineattributeId systemIdId">
-            <f:validator binding="#{bindings.Wash.validator}"/>
-          </af:inputText>
           <af:inputText value="#{bindings.ExtraCutPercent.inputValue}"
                         label="Planned Extra Cut % :"
                         columns="#{bindings.ExtraCutPercent.hints.displayWidth}"

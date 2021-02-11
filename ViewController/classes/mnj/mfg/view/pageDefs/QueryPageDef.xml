@@ -47,6 +47,10 @@
           <Item Value="FinishedGarmentsColor"/>
           <Item Value="Wash"/>
           <Item Value="SystemId"/>
+          <Item Value="NewStyle"/>
+          <Item Value="NewSeason"/>
+          <Item Value="NewColor"/>
+          <Item Value="NewWash"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

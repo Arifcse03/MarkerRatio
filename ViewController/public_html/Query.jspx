@@ -103,7 +103,8 @@
                 <af:column headerText="Buyer" id="c2" align="center"
                            sortable="true" filterable="true"
                            sortProperty="BuyerName"
-                           filterFeatures="caseInsensitive" width="206">
+                           filterFeatures="caseInsensitive" width="206"
+                           visible="false">
                   <af:inputComboboxListOfValues id="buyerNameId"
                                                 popupTitle="Search and Select: #{bindings.MnjMfgRatioplanView1.hints.BuyerName.label}"
                                                 value="#{row.bindings.BuyerName.inputValue}"
@@ -117,7 +118,7 @@
                 <af:column headerText="Style" id="c3" align="center"
                            sortable="true" filterable="true"
                            sortProperty="Style" filterFeatures="caseInsensitive"
-                           width="105">
+                           width="105" visible="false">
                   <af:inputComboboxListOfValues id="styleId"
                                                 popupTitle="Search and Select: #{bindings.MnjMfgRatioplanView1.hints.Style.label}"
                                                 value="#{row.bindings.Style.inputValue}"
@@ -131,7 +132,8 @@
                 <af:column headerText="Season" id="c4" align="center"
                            sortable="true" filterable="true"
                            sortProperty="Season"
-                           filterFeatures="caseInsensitive" width="105">
+                           filterFeatures="caseInsensitive" width="105"
+                           visible="false">
                   <af:inputText value="#{row.bindings.Season.inputValue}"
                                 label="#{bindings.MnjMfgRatioplanView1.hints.Season.label}"
                                 required="#{bindings.MnjMfgRatioplanView1.hints.Season.mandatory}"
@@ -144,18 +146,41 @@
                 </af:column>
                 <af:column headerText="Finished Garments Color" id="c1"
                            sortProperty="FinishedGarmentsColor" align="center"
-                           sortable="true" filterable="true" rendered="false">
+                           sortable="true" filterable="true" rendered="false"
+                           visible="false">
                   <af:outputText value="#{row.FinishedGarmentsColor}" id="ot3"/>
                 </af:column>
                 <af:column headerText="#{bindings.MnjMfgRatioplanView1.hints.Color.label}"
                            id="c6" align="center" sortable="true"
-                           filterable="true" sortProperty="Color">
+                           filterable="true" sortProperty="Color"
+                           visible="false">
                   <af:outputText value="#{row.Color}" id="ot2"/>
                 </af:column>
                 <af:column headerText="Wash"
                            id="c8" align="center" sortable="true"
-                           filterable="true" sortProperty="Wash">
+                           filterable="true" sortProperty="Wash"
+                           visible="false">
                   <af:outputText value="#{row.Wash}" id="ot5"/>
+                </af:column>
+                <af:column headerText="Style"
+                           id="c7" align="center" sortable="true"
+                           filterable="true" sortProperty="NewStyle">
+                  <af:outputText value="#{row.NewStyle}" id="ot6"/>
+                </af:column>
+                <af:column headerText="Season"
+                           id="c9" align="center" sortable="true"
+                           filterable="true" sortProperty="NewSeason">
+                  <af:outputText value="#{row.NewSeason}" id="ot7"/>
+                </af:column>
+                <af:column headerText="Color"
+                           id="c10" align="center" sortable="true"
+                           filterable="true" sortProperty="NewColor">
+                  <af:outputText value="#{row.NewColor}" id="ot8"/>
+                </af:column>
+                <af:column headerText="Wash"
+                           id="c11" align="center" sortable="true"
+                           filterable="true" sortProperty="NewWash">
+                  <af:outputText value="#{row.NewWash}" id="ot9"/>
                 </af:column>
                 <af:column sortProperty="Plantype" filterable="true"
                            sortable="true" headerText="Plan Type" id="resId1c12"

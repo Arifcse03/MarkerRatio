@@ -99,8 +99,6 @@
         <Item Value="ToleranceExtraPercent"/>
       </AttrNames>
     </attributeValues>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
-            DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false"
             Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
     <tree IterBinding="MnjMfgRatioplanPlylineView1Iterator"
@@ -333,8 +331,6 @@
                   IsViewObjectMethod="false">
       <NamedData NDName="saleOrderId" NDType="java.lang.String"/>
     </methodAction>
-    <listOfValues StaticList="false" IterBinding="MnjMfgRatioplanView1Iterator"
-                  Uses="LOV_Style" id="Style"/>
     <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="BuyerId">
       <AttrNames>
         <Item Value="BuyerId"/>
@@ -471,11 +467,6 @@
     </tree>
     <action IterBinding="MnjMfgRatioplanStnsAllView1Iterator" id="Delete6"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="Season">
-      <AttrNames>
-        <Item Value="Season"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="Deviation">
       <AttrNames>
         <Item Value="Deviation"/>
@@ -493,8 +484,6 @@
         <Item Value="SalesorderId"/>
       </AttrNames>
     </attributeValues>
-    <listOfValues StaticList="false" IterBinding="MnjMfgRatioplanView1Iterator"
-                  Uses="LOV_BuyerName" id="BuyerName"/>
     <methodAction id="createCutNosNew"
                   InstanceName="AppModuleDataControl.dataProvider"
                   DataControl="AppModuleDataControl" RequiresUpdateModel="true"
@@ -755,11 +744,6 @@
     </attributeValues>
     <listOfValues StaticList="false" IterBinding="MnjMfgRatioplanView1Iterator"
                   Uses="LOV_FinishedGarmentsColor" id="FinishedGarmentsColor"/>
-    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="Wash">
-      <AttrNames>
-        <Item Value="Wash"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="Creator">
       <AttrNames>
         <Item Value="Creator"/>
@@ -784,11 +768,31 @@
     </attributeValues>
     <listOfValues StaticList="false" IterBinding="MnjMfgRatioplanView1Iterator"
                   Uses="LOV_Combineattribute" id="Combineattribute"/>
-    <listOfValues StaticList="false" IterBinding="MnjMfgRatioplanView1Iterator"
-                  Uses="LOV_SystemId" id="SystemId"/>
     <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="DivisionId">
       <AttrNames>
         <Item Value="DivisionId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="MnjMfgRatioplanView1Iterator"
+                  Uses="LOV_SystemId" id="SystemId"/>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="NewStyle">
+      <AttrNames>
+        <Item Value="NewStyle"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="NewSeason">
+      <AttrNames>
+        <Item Value="NewSeason"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="NewColor">
+      <AttrNames>
+        <Item Value="NewColor"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgRatioplanView1Iterator" id="NewWash">
+      <AttrNames>
+        <Item Value="NewWash"/>
       </AttrNames>
     </attributeValues>
   </bindings>

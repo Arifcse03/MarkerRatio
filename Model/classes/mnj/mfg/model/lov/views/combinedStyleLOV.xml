@@ -46,8 +46,10 @@ h.brand,
 L.color color,
 L.wash_name wash,
 H.poc_id
-FROM xx_om_poc_h_t H, xx_om_poc_L_t L, ar_customers ac
+FROM xx_om_poc_h_t H, xx_om_poc_L_t L, ar_customers ac,xx_om_bpo_info_t bpo, MNJ_MFG_OSP_STN_LINE ml
 WHERE h.poc_id = L.poc_id
+and BPO.FOB_ID=l.fob_id
+and ml.bpo_id=bpo.bpo_id
 AND h.BUYER_ID = ac.CUSTOMER_ID
 AND H.LC_UNIT = :p_org]]>
   </SQLQuery>

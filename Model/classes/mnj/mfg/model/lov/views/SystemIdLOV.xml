@@ -39,11 +39,14 @@
        H.STYLE,
        L.WASH_NAME,
        L. color COLOUR
-  FROM xx_om_poc_h_t H, xx_om_poc_L_t L, ar_customers ac
- WHERE  h.poc_id = L.poc_id
+ FROM xx_om_poc_h_t H, xx_om_poc_L_t L, ar_customers ac,xx_om_bpo_info_t bpo, MNJ_MFG_OSP_STN_LINE ml
+WHERE h.poc_id = L.poc_id
+and BPO.FOB_ID=l.fob_id
+and ml.bpo_id=bpo.bpo_id
 AND h.BUYER_ID = ac.CUSTOMER_ID
 AND H.LC_UNIT = :p_org
- order by SYSTEM_ID desc]]>
+
+ order by L.SYSTEM_ID desc]]>
   </SQLQuery>
   <ViewAttribute
     Name="SystemId"
@@ -61,7 +64,7 @@ AND H.LC_UNIT = :p_org
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="15"/>
+          Value="40"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -159,7 +162,7 @@ AND H.LC_UNIT = :p_org
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="15"/>
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

@@ -22,6 +22,8 @@ import javax.faces.event.ValueChangeEvent;
 
 import javax.servlet.http.HttpSession;
 
+import mnj.mfg.model.services.AppModuleImpl;
+
 import oracle.adf.view.rich.component.rich.data.RichColumn;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.input.RichInputComboboxListOfValues;
@@ -32,6 +34,7 @@ import oracle.binding.BindingContainer;
 
 import oracle.adf.model.BindingContext;
 
+import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCDataControl;
 
 import oracle.binding.OperationBinding;
@@ -1517,17 +1520,17 @@ public class Main {
         //        deviationPrcnt.setValue(MyMath.toNumber(deviationPrcntVal));
         //        AdfFacesContext.getCurrentInstance().addPartialTarget(deviation);
         //        AdfFacesContext.getCurrentInstance().addPartialTarget(deviationPrcnt);
-
+        
+        
         
         OperationBinding operationBinding1 = executeOperation("getPlanQty");
         operationBinding1.getParamsMap().put("rationPlanID", getRatioplanID().getValue());
 
         operationBinding1.execute(); //setPopulateSizeWhereClause
-
-        BindingContainer bindings = getBindings();
-        OperationBinding operationBinding =
-            bindings.getOperationBinding("Commit");
-        Object result = operationBinding.execute();
+        ViewObject vo=appM.getMnjMfgRatioplanView1();
+       appM.getDBTransaction().commit();
+       
+        vo.clearCache();
 
         return null;
     }
@@ -1564,7 +1567,17 @@ public class Main {
     public RichTable getStnTable() {
         return stnTable;
     }
+    AppModuleImpl appM = getAppModuleImpl();
 
+        public AppModuleImpl getAppModuleImpl() {
+            DCBindingContainer bindingContainer =
+                (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+            //BindingContext bindingContext = BindingContext.getCurrent();
+            DCDataControl dc =
+                bindingContainer.findDataControl("AppModuleDataControl"); // Name of application module in datacontrolBinding.cpx
+            AppModuleImpl appM = (AppModuleImpl)dc.getDataProvider();
+            return appM;
+        }
     public void setColoId(RichInputText coloId) {
         this.coloId = coloId;
         FacesContext fctx = FacesContext.getCurrentInstance();

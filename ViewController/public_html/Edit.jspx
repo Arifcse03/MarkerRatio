@@ -702,12 +702,13 @@
             </af:table>
           </af:dialog>
         </af:popup>
-        <af:popup id="p7">
+        <af:popup id="p7" contentDelivery="lazyUncached">
           <af:dialog id="d8"/>
         </af:popup>
         <af:popup id="p6"
                   popupFetchListener="#{backing_bean.editPopupFetchLisSTN}"
-                  popupCanceledListener="#{backing_bean.editPopupCancelListener}">
+                  popupCanceledListener="#{backing_bean.editPopupCancelListener}"
+                  contentDelivery="lazyUncached">
           <af:dialog id="d7" title="STN "
                      dialogListener="#{backing_bean.editDialogLisSTNNew}">
             <af:table value="#{bindings.STNVO11.collectionModel}" var="row"
@@ -727,33 +728,45 @@
                                           shortDesc="#{bindings.STNVO11.hints.StnFlag.tooltip}"
                                           id="sbc7"/>
               </af:column>
-              <af:column headerText="#{bindings.STNVO11.hints.SystemId.label}"
-                         id="c50">
+              <af:column headerText="System Id"
+                         id="c50" align="center" sortable="true"
+                         filterable="true" sortProperty="SystemId">
                 <af:outputText value="#{row.SystemId}" id="ot18">
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.STNVO11.hints.SystemId.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.STNVO11.hints.BpoId.label}"
-                         id="c13">
+              <af:column headerText="BPO Id"
+                         id="c13" align="center" sortable="true"
+                         filterable="true" sortProperty="BpoId">
                 <af:outputText value="#{row.BpoId}" id="ot1">
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.STNVO11.hints.BpoId.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.STNVO11.hints.BpoNo.label}"
-                         id="c40">
+              <af:column headerText="BPO"
+                         id="c40" align="center" sortable="true"
+                         filterable="true" sortProperty="BpoNo">
                 <af:outputText value="#{row.BpoNo}" id="ot16"/>
               </af:column>
+              <af:column headerText="QTY"
+                         id="c59" align="center" sortable="true"
+                         filterable="true" sortProperty="OrderedQty">
+                <af:outputText value="#{row.OrderedQty}" id="ot30">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.STNVO11.hints.OrderedQty.format}"/>
+                </af:outputText>
+              </af:column>
               <af:column headerText="#{bindings.STNVO11.hints.OrderedQty.label}"
-                         id="c44">
+                         id="c44" visible="false">
                 <af:outputText value="#{row.OrderedQty}" id="ot17">
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.STNVO11.hints.OrderedQty.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.STNVO11.hints.InventoryItemId.label}"
-                         id="c52">
+              <af:column headerText="Inventory Item Id"
+                         id="c52" align="center" sortable="true"
+                         filterable="true" sortProperty="InventoryItemId">
                 <af:outputText value="#{row.InventoryItemId}" id="ot19">
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.STNVO11.hints.InventoryItemId.format}"/>
@@ -764,7 +777,8 @@
         </af:popup>
         <af:popup id="p5"
                   popupFetchListener="#{backing_bean.editPopupFetchLisRoll}"
-                  popupCanceledListener="#{backing_bean.editPopupCancelListener}">
+                  popupCanceledListener="#{backing_bean.editPopupCancelListener}"
+                  contentDelivery="lazyUncached">
           <af:dialog id="d6" title="Fill Roll"
                      dialogListener="#{backing_bean.editDialogLisRoll}">
             <af:table value="#{bindings.RollNo1.collectionModel}" var="row"
@@ -1853,7 +1867,8 @@
         </af:panelTabbed>
         <af:popup id="p4"
                   popupFetchListener="#{backing_bean.editPopupFetchLisShip}"
-                  popupCanceledListener="#{backing_bean.editPopupCancelListener}">
+                  popupCanceledListener="#{backing_bean.editPopupCancelListener}"
+                  contentDelivery="lazyUncached">
           <af:dialog id="d4" title="Shipment Information" contentWidth="800"
                      dialogListener="#{backing_bean.editDialogListenerShip}"
                      type="cancel">
@@ -2037,7 +2052,8 @@
         </af:popup>
         <af:popup id="p2"
                   popupFetchListener="#{backing_bean.editPopupFetchListener}"
-                  popupCanceledListener="#{backing_bean.editPopupCancelListener}">
+                  popupCanceledListener="#{backing_bean.editPopupCancelListener}"
+                  contentDelivery="lazyUncached">
           <af:dialog id="d2" contentWidth="700" contentHeight="200"
                      dialogListener="#{backing_bean.editDialogListener}">
             <af:panelHeader text="STNs" id="ph7">

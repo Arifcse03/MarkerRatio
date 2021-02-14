@@ -66,13 +66,10 @@ SELECT MnjMfgRatioplanStnsAll.DETAIL_ID,
         (select j.wip_entity_name
           from WIP_DISCRETE_JOBS_V j,mnj_mfg_ratioplan mmr
          where MnjMfgRatioplanStnsAll.ratioplan_id=mmr.ratioplan_id
-         and j.attribute6=mmr.style
-         and j.attribute7=mmr.season 
-         and j.attribute8=mmr.color
-      -- and j.ATTRIBUTE_CATEGORY is null
+         and j.ATTRIBUTE10=mmr.system_id
 and j.wip_entity_name like '%-C'
---and j.wip_entity_name like '%mmr.style%'
-          -- and j.attribute3 = MnjMfgRatioplanStnsAll.RATIOPLAN_ID
+
+          
           and rownum=1
           and STATUS_TYPE_DISP<>'Closed'
            ) job_name,

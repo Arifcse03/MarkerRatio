@@ -16,7 +16,7 @@
                         maximumLength="#{bindings.RatioplanId.hints.precision}"
                         shortDesc="#{bindings.RatioplanId.hints.tooltip}"
                         id="it3" binding="#{backing_bean.ratioplanID}"
-                        visible="true">
+                        visible="false">
             <f:validator binding="#{bindings.RatioplanId.validator}"/>
             <af:convertNumber groupingUsed="false"
                               pattern="#{bindings.RatioplanId.format}"/>

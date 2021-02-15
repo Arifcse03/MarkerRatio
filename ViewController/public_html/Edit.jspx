@@ -1121,17 +1121,9 @@
                       <f:validator binding="#{row.bindings.ItemDescription.validator}"/>
                     </af:inputText>
                   </af:column>
-                  <af:column headerText="QTY"
-                             id="c58" align="center" sortable="true"
-                             filterable="true" sortProperty="NewQuantity">
-                    <af:outputText value="#{row.NewQuantity}" id="ot25">
-                      <af:convertNumber groupingUsed="false"
-                                        pattern="#{bindings.MnjMfgRatioplanStnsAllView1.hints.NewQuantity.format}"/>
-                    </af:outputText>
-                  </af:column>
                   <af:column sortProperty="StnQty" sortable="true"
-                             headerText="BPO QTY" id="c93" align="center"
-                             visible="false">
+                             headerText="QTY" id="c93" align="center"
+                             visible="true" filterable="true">
                     <af:inputText value="#{row.bindings.StnQty.inputValue}"
                                   label="#{bindings.MnjMfgRatioplanStnsAllView1.hints.StnQty.label}"
                                   required="#{bindings.MnjMfgRatioplanStnsAllView1.hints.StnQty.mandatory}"
@@ -1144,6 +1136,14 @@
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.MnjMfgRatioplanStnsAllView1.hints.StnQty.format}"/>
                     </af:inputText>
+                  </af:column>
+                  <af:column headerText="BPO QTY"
+                             id="c58" align="center" sortable="true"
+                             filterable="true" sortProperty="NewQuantity">
+                    <af:outputText value="#{row.NewQuantity}" id="ot25">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MnjMfgRatioplanStnsAllView1.hints.NewQuantity.format}"/>
+                    </af:outputText>
                   </af:column>
                   <af:column headerText="Job Name" id="c14" align="center"
                              width="150" visible="true" sortProperty="JobName"

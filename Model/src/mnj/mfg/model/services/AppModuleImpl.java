@@ -1580,16 +1580,16 @@ getMnjMfgRatioplanSizlineView1().getCurrentRow().getAttribute("SizeId");
        // linerow.setAttribute("StnNo",
                             // getPopulateValue(poprow, "Stn"));
         
-        //linerow.setAttribute("BpoNo",
-                            // getPopulateValue(poprow, "BpoNo")); //BpoNo
+        linerow.setAttribute("BpoNo",
+                             getPopulateValue(poprow, "BpoNo")); //BpoNo
 
         linerow.setAttribute("ItemCode",
                              getPopulateValue(poprow, "OrderedItem")); //DcpoNo
 
         linerow.setAttribute("ItemDescription",
                              getPopulateValue(poprow, "Description")); //DcpoNo
-       // linerow.setAttribute("StnQty",
-                            // getPopulateValue(poprow, "OrderedQty")); //DcpoNo
+      linerow.setAttribute("StnQty",
+                             getPopulateValue(poprow, "OrderedQty")); //DcpoNo
 
         linerow.setAttribute("InventoryItemId",
                              getPopulateValue(poprow, "InventoryItemId"));

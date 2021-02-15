@@ -423,7 +423,7 @@
       Hint="showAndExecute"/>
   </ListBinding>
   <SQLQuery>
-    <![CDATA[SELECT MnjMfgRatioplan.DIVISION_ID,
+    <![CDATA[SELECT distinct MnjMfgRatioplan.DIVISION_ID,
        MnjMfgRatioplan.RATIOPLAN_ID,
        MnjMfgRatioplan.RATIOPLAN_NUMBER,
        MnjMfgRatioplan.RATIOPLAN_DATE,

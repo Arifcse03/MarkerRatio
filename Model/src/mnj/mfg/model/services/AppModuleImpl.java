@@ -924,7 +924,7 @@ getMnjMfgRatioplanSizlineView1().getCurrentRow().getAttribute("SizeId");
 
         ViewObject hvo = getMnjMfgRatioplanView1();
 
-        String style = hvo.getCurrentRow().getAttribute("Style").toString();
+        String style = hvo.getCurrentRow().getAttribute("NewStyle").toString();
         String ratioNo =
             hvo.getCurrentRow().getAttribute("RatioplanNumber").toString();
 

@@ -1527,10 +1527,10 @@ public class Main {
         operationBinding1.getParamsMap().put("rationPlanID", getRatioplanID().getValue());
 
         operationBinding1.execute(); //setPopulateSizeWhereClause
-        ViewObject vo=appM.getMnjMfgRatioplanView1();
-       appM.getDBTransaction().commit();
-       
-        vo.clearCache();
+//        ViewObject vo=appM.getMnjMfgRatioplanView1();
+//       appM.getDBTransaction().commit();
+//       
+//        vo.clearCache();
 
         return null;
     }
@@ -1910,5 +1910,16 @@ System.out.println("In getTotalBalanceQuantity ....");
 
     public RichInputText getColorColor() {
         return colorColor;
+    }
+
+
+    public void systemIdValueChange(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        ViewObject vo=appM.getMnjMfgRatioplanView1();
+               appM.getDBTransaction().commit();
+                vo.clearCache();
+                vo.executeQuery();
+        
+        
     }
 }//end of class

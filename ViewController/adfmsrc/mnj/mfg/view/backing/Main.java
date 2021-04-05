@@ -1529,8 +1529,8 @@ public class Main {
         operationBinding1.getParamsMap().put("rationPlanID", getRatioplanID().getValue());
 
         operationBinding1.execute(); //setPopulateSizeWhereClause
-//        ViewObject vo=appM.getMnjMfgRatioplanView1();
-//       appM.getDBTransaction().commit();
+        ViewObject vo=appM.getMnjMfgRatioplanView1();
+       appM.getDBTransaction().commit();
 //       
 //        vo.clearCache();
 

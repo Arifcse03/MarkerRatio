@@ -72,7 +72,6 @@
                                 required="#{bindings.SystemId.hints.mandatory}"
                                 columns="#{bindings.SystemId.hints.displayWidth}"
                                 shortDesc="#{bindings.SystemId.hints.tooltip}"
-                                valueChangeListener="#{backing_bean.systemIdValueChange}"
                                 autoSubmit="true"
                                 readOnly="#{bindings.SystemId.inputValue eq null ? false : true}">
             <f:validator binding="#{bindings.SystemId.validator}"/>

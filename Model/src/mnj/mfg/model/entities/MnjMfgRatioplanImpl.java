@@ -548,6 +548,16 @@ public class MnjMfgRatioplanImpl extends EntityImpl {
             }
         }
         ,
+        PocId {
+            public Object get(MnjMfgRatioplanImpl obj) {
+                return obj.getPocId();
+            }
+
+            public void put(MnjMfgRatioplanImpl obj, Object value) {
+                obj.setPocId((Number)value);
+            }
+        }
+        ,
         MnjMfgRatioplanObline {
             public Object get(MnjMfgRatioplanImpl obj) {
                 return obj.getMnjMfgRatioplanObline();
@@ -669,6 +679,7 @@ public class MnjMfgRatioplanImpl extends EntityImpl {
     public static final int FINISHEDGARMENTSCOLOR = AttributesEnum.FinishedGarmentsColor.index();
     public static final int WASH = AttributesEnum.Wash.index();
     public static final int SYSTEMID = AttributesEnum.SystemId.index();
+    public static final int POCID = AttributesEnum.PocId.index();
     public static final int MNJMFGRATIOPLANOBLINE = AttributesEnum.MnjMfgRatioplanObline.index();
     public static final int MNJMFGRATIOPLANPLYLINE = AttributesEnum.MnjMfgRatioplanPlyline.index();
     public static final int MNJMFGRATIOPLANBPOSALL = AttributesEnum.MnjMfgRatioplanBposAll.index();
@@ -1521,6 +1532,22 @@ public class MnjMfgRatioplanImpl extends EntityImpl {
      */
     public void setSystemId(Number value) {
         setAttributeInternal(SYSTEMID, value);
+    }
+
+    /**
+     * Gets the attribute value for PocId, using the alias name PocId.
+     * @return the PocId
+     */
+    public Number getPocId() {
+        return (Number)getAttributeInternal(POCID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PocId.
+     * @param value value to set the PocId
+     */
+    public void setPocId(Number value) {
+        setAttributeInternal(POCID, value);
     }
 
     /**

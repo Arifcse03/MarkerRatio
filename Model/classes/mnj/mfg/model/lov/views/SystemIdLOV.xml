@@ -32,20 +32,21 @@
     <TransientExpression><![CDATA[adf.context.sessionScope.orgId]]></TransientExpression>
   </Variable>
   <SQLQuery>
-    <![CDATA[SELECT L.SYSTEM_ID,
+    <![CDATA[SELECT distinct L.SYSTEM_ID,
        H.BUYER_ID,
        ac.CUSTOMER_NAME,
        H.SEASON,
        H.STYLE,
        L.WASH_NAME,
-       L. color COLOUR
- FROM xx_om_poc_h_t H, xx_om_poc_L_t L, ar_customers ac,xx_om_bpo_info_t bpo, MNJ_MFG_OSP_STN_LINE ml
+       L. color COLOUR,
+        H.POC_ID
+ FROM xx_om_poc_h_t H, xx_om_poc_L_t L, ar_customers ac,xx_om_bpo_info_t bpo, MNJ_MFG_OSP_STN_LINE ml --, MNJ_MFG_RATIOPLAN 
 WHERE h.poc_id = L.poc_id
 and BPO.FOB_ID=l.fob_id
 and ml.bpo_id=bpo.bpo_id
 AND h.BUYER_ID = ac.CUSTOMER_ID
 AND H.LC_UNIT = :p_org
-
+and NOT EXISTS (select system_id from MNJ_MFG_RATIOPLAN r where r.system_id=L.system_id )
  order by L.SYSTEM_ID desc]]>
   </SQLQuery>
   <ViewAttribute
@@ -184,6 +185,27 @@ AND H.LC_UNIT = :p_org
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="80"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PocId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="POC_ID"
+    Expression="POC_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

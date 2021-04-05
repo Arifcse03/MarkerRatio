@@ -643,6 +643,17 @@
       <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="PocId"
+    ColumnName="POC_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_RATIOPLAN">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="MnjMfgRatioplanObline"
     Association="mnj.mfg.model.entities.MnjMfgRpoblineFkAssoc"

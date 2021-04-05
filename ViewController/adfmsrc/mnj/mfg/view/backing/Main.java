@@ -1521,8 +1521,10 @@ public class Main {
         //        AdfFacesContext.getCurrentInstance().addPartialTarget(deviation);
         //        AdfFacesContext.getCurrentInstance().addPartialTarget(deviationPrcnt);
         
-        
-        
+//        ViewObject vo=appM.getMnjMfgRatioplanView1();
+//             appM.getDBTransaction().commit();
+//        vo.executeQuery();
+//        
         OperationBinding operationBinding1 = executeOperation("getPlanQty");
         operationBinding1.getParamsMap().put("rationPlanID", getRatioplanID().getValue());
 
@@ -1915,10 +1917,10 @@ System.out.println("In getTotalBalanceQuantity ....");
 
     public void systemIdValueChange(ValueChangeEvent valueChangeEvent) {
         // Add event code here...
-        ViewObject vo=appM.getMnjMfgRatioplanView1();
-               appM.getDBTransaction().commit();
-                vo.clearCache();
-                vo.executeQuery();
+       // ViewObject vo=appM.getMnjMfgRatioplanView1();
+             //  appM.getDBTransaction().commit();
+                //vo.clearCache();
+                //vo.executeQuery();
         
         
     }

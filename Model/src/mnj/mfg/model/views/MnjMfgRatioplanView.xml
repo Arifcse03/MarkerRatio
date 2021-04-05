@@ -368,11 +368,13 @@
     <AttrArray Name="DerivedAttrNames">
       <Item Value="BuyerId"/>
       <Item Value="BuyerName"/>
+      <Item Value="PocId"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="SystemId"/>
       <Item Value="BuyerId"/>
       <Item Value="CustomerName"/>
+      <Item Value="PocId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="SystemId"/>
@@ -510,7 +512,8 @@
        ph.style New_style,
        ph.season New_Season,
        pl.color New_color,
-       pl.wash_name New_Wash
+       pl.wash_name New_Wash,
+MnjMfgRatioplan.POC_ID
   FROM MNJ_MFG_RATIOPLAN MnjMfgRatioplan,xx_om_poc_h_t ph,xx_om_poc_l_t pl
  where MnjMfgRatioplan.DIVISION_ID = :p_orgId
  and PH.POC_ID=pl.poc_id
@@ -1231,6 +1234,12 @@
     ColumnType="$none$"
     AliasName="CREATION_DATE1"
     SQLType="DATE"/>
+  <ViewAttribute
+    Name="PocId"
+    PrecisionRule="true"
+    EntityAttrName="PocId"
+    EntityUsage="MnjMfgRatioplan"
+    AliasName="POC_ID"/>
   <ViewCriteria
     Name="SearchByRatioPlanNo"
     ViewObjectName="mnj.mfg.model.views.MnjMfgRatioplanView"

@@ -1430,14 +1430,14 @@ getMnjMfgRatioplanSizlineView1().getCurrentRow().getAttribute("SizeId");
          * *************************************************/
         Map sessionScope = ADFContext.getCurrent().getSessionScope();
         String orgId = (String)sessionScope.get("orgId");
-        // orgId = "342";
+        // orgId = "341";
         String buyerId =
             changeToString(getHeaderFieldValue(STRING, "BuyerId"));
-        String style = changeToString(getHeaderFieldValue(STRING, "Style"));
-        String season = changeToString(getHeaderFieldValue(STRING, "Season"));
-        
+        String style = changeToString(getHeaderFieldValue(STRING, "NewStyle"));
+        String season = changeToString(getHeaderFieldValue(STRING, "NewSeason"));
+        String system_id = changeToString(getHeaderFieldValue(STRING, "SystemId"));
         System.out.println("Parameters are.. "+orgId + buyerId +
-                                                          style+ season);
+                                                          style+ season+system_id );
 
       /*  BigDecimal ordQtyD =
             (BigDecimal)callStoredFunction(NUMBER, "mnj_mfg_marker_ratio_pkg.getOrderQty(?,?,?,?)",
@@ -1461,11 +1461,17 @@ getMnjMfgRatioplanSizlineView1().getCurrentRow().getAttribute("SizeId");
         //            changeToString(getHeaderFieldValue(STRING, "BuyerId"));
         //        String style = changeToString(getHeaderFieldValue(STRING, "Style"));
         //        String season = changeToString(getHeaderFieldValue(STRING, "Season"));
-
+/** old function where parameter was buyer style season**/
+//        BigDecimal cutQtyD =
+//            (BigDecimal)callStoredFunction(NUMBER, "mnj_mfg_marker_ratio_pkg.getCutQty(?,?,?)",
+//                                           new Object[] { buyerId, style,
+//                                                          season });
+        
+        
+        /** new function where parameter is system id**/
         BigDecimal cutQtyD =
-            (BigDecimal)callStoredFunction(NUMBER, "mnj_mfg_marker_ratio_pkg.getCutQty(?,?,?)",
-                                           new Object[] { buyerId, style,
-                                                          season });
+            (BigDecimal)callStoredFunction(NUMBER, "mnj_mfg_marker_ratio_pkg.XX_ODM_GETCUTQTY(?)",
+                                           new Object[] { system_id });
         double totalCutQty = cutQtyD.doubleValue();
 
         double cutDeviation = totalCutQty - orderQty;
@@ -1490,11 +1496,17 @@ getMnjMfgRatioplanSizlineView1().getCurrentRow().getAttribute("SizeId");
         //        String style = changeToString(getHeaderFieldValue(STRING, "Style"));
         //        String season = changeToString(getHeaderFieldValue(STRING, "Season"));
         //
-
+        /** old function where parameter was buyer style season**/
+//        BigDecimal ratioQtyD =
+//            (BigDecimal)callStoredFunction(NUMBER, "mnj_mfg_marker_ratio_pkg.getRatioPlanQty(?,?,?,?) ",
+//                                           new Object[] { orgId, buyerId,
+//                                                          style, season });
+        
+        /** n  function where parameter is system id**/
+        
         BigDecimal ratioQtyD =
-            (BigDecimal)callStoredFunction(NUMBER, "mnj_mfg_marker_ratio_pkg.getRatioPlanQty(?,?,?,?)",
-                                           new Object[] { orgId, buyerId,
-                                                          style, season });
+            (BigDecimal)callStoredFunction(NUMBER, "mnj_mfg_marker_ratio_pkg.XX_ODM_GETRATIOPLANQTY(?) ",
+                                           new Object[] { system_id});
         double raioPlaQty = ratioQtyD.doubleValue();
 
         setHeaderFieldValue("RatioPlanQty", raioPlaQty);
@@ -1621,6 +1633,7 @@ getMnjMfgRatioplanSizlineView1().getCurrentRow().getAttribute("SizeId");
                 for (int z = 0; z < bindVars.length; z++) {
                     // 4. Set the value of user-supplied bind vars in the stmt
                     st.setObject(z + 2, bindVars[z]);
+                    
                 }
             }
             // 5. Set the value of user-supplied bind vars in the stmt

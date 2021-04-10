@@ -378,6 +378,7 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="SystemId"/>
+      <Item Value="BpoId"/>
       <Item Value="CustomerName"/>
       <Item Value="Style"/>
       <Item Value="Season"/>

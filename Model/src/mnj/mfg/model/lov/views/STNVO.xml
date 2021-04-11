@@ -20,7 +20,7 @@
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery>
-    <![CDATA[SELECT DISTINCT l.SYSTEM_ID,
+    <![CDATA[SELECT DISTINCT PL.SYSTEM_ID,
 V.BPO BPO_NO,
 v.QTY ORDERED_QTY,
 ITEM_ID INVENTORY_ITEM_ID,

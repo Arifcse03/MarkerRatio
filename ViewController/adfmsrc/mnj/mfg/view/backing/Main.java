@@ -952,8 +952,10 @@ public class Main {
     public String refreshBalance() {
         // Add event code here...
         
-        OperationBinding operationBinding1 = executeOperation("Commit");
-        operationBinding1.execute();
+        //OperationBinding operationBinding1 = executeOperation("Commit");
+       // operationBinding1.execute();
+        
+        appM.getDBTransaction().commit();
         
         
         
@@ -1479,7 +1481,7 @@ public class Main {
         //copySize
         OperationBinding operationBinding = executeOperation("copySize");
         operationBinding.execute(); //setPopulateSizeWhereClause
-
+        AdfFacesContext.getCurrentInstance().addPartialTarget(ratioPlanTable);
         return null;
     }
 

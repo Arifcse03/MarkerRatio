@@ -23,12 +23,6 @@
     Name="p_org"
     Kind="where"
     Type="java.lang.String">
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Hide"/>
-      </SchemaBasedProperties>
-    </Properties>
     <TransientExpression><![CDATA[adf.context.sessionScope.orgId]]></TransientExpression>
   </Variable>
   <SQLQuery>
@@ -40,7 +34,8 @@
        L.WASH_NAME,
        L. color COLOUR,
         H.POC_ID,
-        ml.bpo_id
+        ml.bpo_id,
+        H.LC_UNIT
  FROM xx_om_poc_h_t H, xx_om_poc_L_t L, ar_customers ac,xx_om_bpo_info_t bpo, MNJ_MFG_OSP_STN_LINE ml --, MNJ_MFG_RATIOPLAN 
 WHERE h.poc_id = L.poc_id
 and BPO.FOB_ID=l.fob_id
@@ -66,7 +61,7 @@ and NOT EXISTS (select bpo_id from MNJ_MFG_RATIOPLAN_STNS_ALL r where r.bpo_id=m
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="40"/>
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -185,7 +180,7 @@ and NOT EXISTS (select bpo_id from MNJ_MFG_RATIOPLAN_STNS_ALL r where r.bpo_id=m
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="80"/>
+          Value="40"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -227,6 +222,28 @@ and NOT EXISTS (select bpo_id from MNJ_MFG_RATIOPLAN_STNS_ALL r where r.bpo_id=m
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LcUnit"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="LC_UNIT"
+    Expression="LC_UNIT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Display"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

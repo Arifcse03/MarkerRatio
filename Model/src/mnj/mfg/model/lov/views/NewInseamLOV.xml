@@ -46,7 +46,8 @@ mnj_mfg_ratio_size_v sv
 WHERE mmr.RATIOPLAN_ID = mmsta.RATIOPLAN_ID
 AND mmsta.BPO_ID = D.BPO_ID
 AND D.BPO_ID = H.BPO_ID
-AND H.SIZE_NAME = sv.SIZE_INSEAM
+AND trim(H.SIZE_NAME) = trim(sv.SIZE_INSEAM)
+--AND H.SIZE_NAME = sv.SIZE_INSEAM
 --AND to_char(h.SOLINE_ID) = to_char(mmsta.STN_NO)
 AND mmsta.ratioplan_id = :P_RATIO_PLAN_ID
 --AND d.SO_OBINSLINE_ID = h.SO_OBINSLINE_ID

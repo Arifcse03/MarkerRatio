@@ -43,7 +43,23 @@ and ml.bpo_id=bpo.bpo_id
 AND h.BUYER_ID = ac.CUSTOMER_ID
 AND H.LC_UNIT = :p_org
 and NOT EXISTS (select bpo_id from MNJ_MFG_RATIOPLAN_STNS_ALL r where r.bpo_id=ml.bpo_id )
- order by L.SYSTEM_ID desc]]>
+ order by L.SYSTEM_ID desc
+
+/*SELECT distinct
+ L.SYSTEM_ID,
+       H.BUYER_ID,
+       ac.CUSTOMER_NAME,
+       H.SEASON,
+       H.STYLE,
+       L.WASH_NAME,
+       L. color COLOUR,
+        H.POC_ID
+      
+ FROM xx_om_poc_h_t H, xx_om_poc_L_t L, ar_customers ac
+WHERE h.poc_id = L.poc_id
+AND h.BUYER_ID = ac.CUSTOMER_ID
+and  H.poc_id=4647 AND H.LC_UNIT =340
+ order by L.SYSTEM_ID desc*/]]>
   </SQLQuery>
   <ViewAttribute
     Name="SystemId"
